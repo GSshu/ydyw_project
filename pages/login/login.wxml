@@ -1,0 +1,24 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <view class='imgview'>
+    <image src="/static/image/pjs.jpg" mode="widthFix" class='logoimage'></image>
+  </view>
+  <view class='login-from'>
+    <view class="inputView">
+        <image class='namelmage' src='../../static/image/login/user.png'></image>
+        <label class='loginLab'>账号</label>
+        <input class='inputText' bindinput='inputName' placeholder='请输入编号' name='username' type='text'/>
+      <view class='line'></view>
+      <view class="inputView">
+        <image class='keylmage' src='../../static/image/login/passwd.png'></image>
+        <label class='loginLab'>密码</label>
+        <input class='inputText'password="true" bindinput='inputPwd' placeholder='请输入密码' name='passwd'/>
+      </view>
+    </view>
+    <view class="login">
+      <button class='loginbtn' type='primary ' size='{{primarysize }}'loading='{{loading}}' plain="{{plain}}"bindtap="log">登录</button>
+      <button class='loginbtn' type='primary ' size='{{primarysize }}'loading='{{loading}}' plain="{{plain}}"bindtap="regester">使用须知</button>
+      <view class='info'>{{result}}</view>
+    </view>
+  </view>
+</view>

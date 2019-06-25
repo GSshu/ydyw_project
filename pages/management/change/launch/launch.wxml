@@ -1,0 +1,72 @@
+<!--pages/management/change/launch/launch.wxml-->
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='item'>
+    {{changeid}}
+      <input type='text' bindinput="inputid" class='text' placeholder='假定id'></input>     
+    </view> 
+
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{changetopic}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputtitle" class='text' placeholder='请输入你的变更主题'></input>     
+    </view>
+
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{changecategory}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="categoryChange" class='text' placeholder='请输入：服务变更，技术变更'></input> 
+    </view>
+
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{emergencylevel}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="emergencyChange" class='text' placeholder='请输入：一般，紧急'></input> 
+    </view>
+
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{contact_name_1}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" class='text' placeholder='请输入姓名'></input>
+    </view> 
+    <view class='item'>
+      {{tel_1}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputtel" class='text' placeholder='请输入联系方式'></input>
+    </view> 
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{hopetime_1}}
+      <input type='text' bindinput="inputhopetime" class='text' placeholder='请输入时间'></input>
+    </view> 
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{isinform}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="isinformChange" class='text' placeholder='请输入：是，否'></input> 
+    </view>
+
+    <view class="divider"></view>
+
+    <view class='info'>
+      {{changecontent}}
+      <textarea bindinput="inputcontent" placeholder='请输入你的详细内容' class='textarea'></textarea>
+    </view>
+    <view class="divider"></view>
+
+    <view class='buttonitem'>
+    <button type="primary" form-type="submit" bindtap="summit_action"> 提交 </button>
+    <!-- <button type="warn"  form-type="reset" bindtap="warn"> 重置 </button> -->
+  </view>
+  </form>
+</view>

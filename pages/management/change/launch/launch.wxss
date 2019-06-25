@@ -1,0 +1,58 @@
+/* pages/management/change/launch/launch.wxss */
+.page{
+  display: flex;
+  flex-direction: column;
+  padding: 5rpx 10rpx;
+  font-size: 28rpx;
+}
+
+.item{
+  flex-direction: row;
+  padding: 30rpx 20rpx;
+}
+
+.radiogroup{
+  float: right;
+}
+
+.text{
+  flex-direction: column;
+  float: right;
+}
+
+.requiredimage{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+ 
+}
+
+.divider {
+  width: 100%;
+  height: 3rpx;
+  background-color: #f0f0f0;
+}
+
+.info{
+  padding: 30rpx 20rpx;
+}
+
+.textarea{
+  width:100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 20rpx auto;
+  padding: 20rpx 20rpx;
+  border-radius: 20rpx;
+  border: solid 1rpx #c2bfbf;
+  min-height: 150rpx;
+}
+
+.buttonitem{
+  display: flex;
+}
+
+.buttonitem button{
+  width: 300rpx;
+}
