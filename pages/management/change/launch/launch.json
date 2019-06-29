@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "变更管理-发起",
+  "usingComponents": {
+    "select": "/component/select/select",
+    "popup": "/component/popup/popup",
+    "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM"
+  }
+}

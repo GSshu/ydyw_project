@@ -1,0 +1,102 @@
+<!--pages/management/change/launch/launch.wxml-->
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='item'>
+     {{changeid}}
+      <view>{{date_time}}</view>  
+    </view> 
+
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{changetopic}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputtitle" class='text' placeholder='请输入你的变更主题'></input>     
+    </view>
+
+    <view class="divider"></view>
+
+     <view class='item'>
+      {{changecategory}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <radio-group name= "changecategory"class="radiogroup" bindchange="launchchangeitems">
+        <label class="radio" wx:for="{{changeitemss}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="divider"></view>
+      <view class='item'>
+      {{emergencylevel}}
+      <radio-group name="emergencylevel" class="radiogroup" bindchange="launchemergency">
+        <label class="radio" wx:for="{{urgentitemss}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </radio-group>
+      </view>
+   
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{contact_name_1}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" class='text' placeholder='请输入姓名'></input>
+    </view> 
+
+    <view class='item'>
+      {{tel_1}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputtel" class='text' placeholder='请输入联系方式'></input>
+    </view> 
+    <view class="divider"></view>
+
+    <view class="item">   <!--时间选择框 -->
+  <pickerYMDHM placeholder = "{{placeholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="onPickerChange" startDate="{{startDate}}" endDate="{{endDate}}">
+  </pickerYMDHM>
+</view>
+
+   <view class="container">   <!--下拉框选择人 -->
+    <picker bindchange="slrChange" value="array[index]" range="{{array}}" >
+    <view class="picker">
+      <view class="fb-type">
+        <view class="type-label">{{array[index]}}</view>
+        <image class='type-icon' src="{{xialajiantou}}"></image>
+      </view>
+    </view>
+  </picker>
+</view>
+ <view class="divider"></view> 
+
+    <view class='item'>
+      {{isinform}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="isinformChange" class='text' placeholder='请输入：是，否'></input> 
+    </view>
+
+    <view class="divider"></view>
+
+     <view class='item'>
+      {{receivercategory}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <radio-group name="receivercategory" class="radiogroup" bindchange="launchchangename">
+        <label class="radio" wx:for="{{receiveritemss}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="divider"></view>
+
+    <view class='info'>
+      {{changecontent}}
+      <textarea bindinput="inputcontent" placeholder='请输入你的详细内容' class='textarea'></textarea>
+    </view>
+    <view class="divider"></view>
+
+    <view class='buttonitem'>
+    <button type="primary" bindtap="summit_action"> 提交 </button>
+    <!-- <button type="warn"  form-type="reset" bindtap="warn"> 重置 </button> -->
+  </view>
+  </form>
+</view>

@@ -1,0 +1,49 @@
+<!--component/checkGrop/checkGrop.wxml-->
+<text>component/checkGrop/checkGrop.wxml</text>
+<form bindsubmit="formSubmit"> 
+  <view class='content'> 
+  <!-- 一级菜单 --> 
+     <scroll-view class='scrollLeft' scroll-y> 
+       <block wx:for="{{list}}" wx:key="item"> 
+         <view class="leftBox" catchtap='ontap' data-index='{{index}}' style='{{n==index?"border-left:8rpx solid #1aad16;color:#1aad16":""}}'> 
+         {{item.istitle}} 
+         <view class='num' hidden="{{checked[index].length>0?false:true}}"> 
+         <text>{{allNum[index]?allNum[index]:(checked[index].length>0?checked[index].length:0)}}</text> 
+         </view> 
+        </view> 
+      </block>
+    </scroll-view>
+  <!-- 二级菜单 --> 
+     <scroll-view class='scrollRight' scroll-y> 
+       <view class="weui-cells weui-cells_after-title"> 
+         <!-- 二级菜单中的全部选项 --> 
+           <label class="weui-cell weui-check__label" catchtap='all'> 
+             <checkbox class="weui-check" value="{{childlist[n][0].value}}" checked="{{childlist[n][0].checked}}" /> 
+               <view class="weui-cell__hd weui-check__hd_in-checkbox"> 
+                 <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!childlist[n][0].checked}}"></icon> 
+                 <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{childlist[n][0].checked}}"></icon> 
+              </view> 
+              <view class="weui-cell__bd">{{childlist[n][0].istitle}}</view> 
+              </label>
+              <checkbox-group bindchange="checkboxChange">
+              <!-- 二级菜单中的剩余选项 -->
+            <block wx:for="{{childlist[n]}}" wx:key="value"> 
+            <label class="weui-cell weui-check__label" wx:if='{{item.istitle!="全部"}}'> 
+            <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" /> 
+            <view class="weui-cell__hd weui-check__hd_in-checkbox"> 
+               <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon> 
+               <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon> 
+            </view> 
+            <view class="weui-cell__bd">{{item.istitle}}</view> 
+            </label> 
+            </block> 
+            </checkbox-group> 
+            </view> 
+            </scroll-view> 
+            </view> 
+            <view class="btn-area"> 
+            <button catchtap='back'>返回</button> 
+            <button formType="submit">提交</button> 
+  </view> 
+</form>
+！

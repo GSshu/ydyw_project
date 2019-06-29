@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/management/change/launch/launch",
+    "pages/user/user",
+    "pages/upcome/upcome",
+    "pages/management/change/untreated/untreated",
+    "pages/management/change/before_untreated/be_untreated",
+    "pages/management/change/treated/treated",
+    "pages/management/change/receive/receive",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F3F3F3",
+    "navigationBarTitleText": "技术运行部-移动运维",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#6499FE",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tab/tab-home.png",
+        "selectedIconPath": "static/tab/tab-home-active.png"
+      },
+      {
+        "text": "待办",
+        "pagePath": "pages/upcome/upcome",
+        "iconPath": "static/tab/tab-upcome.png",
+        "selectedIconPath": "static/tab/tab-upcome-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/user/user",
+        "iconPath": "static/tab/tab-user.png",
+        "selectedIconPath": "static/tab/tab-user-active.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

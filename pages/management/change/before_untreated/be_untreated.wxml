@@ -1,0 +1,19 @@
+<!--pages/management/change/before_untreated/be_untreated.wxml-->
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='item'>
+    {{changeid}}
+    <button bindtap="summit_action"> 提交 </button>
+     <text class='text'>{{date}}</text>     
+    </view> 
+
+    <view class="divider"></view>
+    
+    <view class='item'>
+    {{changeid}}
+     <text class='text'  bindinput="inputtitle">{{date}}</text>     
+    </view> 
+
+  </form>
+</view>
+
