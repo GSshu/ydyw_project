@@ -1,0 +1,50 @@
+/* pages/upcome/upcome.wxss */
+.cell{
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 10rpx auto;
+  font-size: 30rpx;
+  color: #494848;
+  border-radius: 20rpx;
+}
+.item1{
+  width: 100%;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: rgb(238, 248, 201);
+}
+
+.item2{
+  width: 100%;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: rgb(233, 177, 177);
+}
+
+.item3{
+  width: 100%;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: rgb(195, 235, 210);
+}
+
+.title{
+  width: 90%;
+  padding: 15rpx 0;
+  margin: 0 auto;
+}
+
+.context{
+  width: 90%;
+  min-height: 60rpx;
+  padding: 25rpx 0;
+  margin: 0 auto;
+}
+
+.divider{
+  width: 90%;
+  height: 1rpx;
+  margin: 0 auto;
+  background-color: #b9b7b7;
+}

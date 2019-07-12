@@ -1,0 +1,90 @@
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <view class='item'>
+      {{topictext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="topicfunc" class='text' value="{{reporttime}}" placeholder='{{topicplaceholder}}'></input>     
+    </view>
+    <view class="divider"></view>
+
+    <view class="timeitem">   
+      {{reporttimetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <pickerYMDHM class='timechanger' placeholder = "{{reporttimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="reporttimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      </pickerYMDHM>
+    </view>
+    <view class="divider"></view>
+
+    <view class="item">
+      {{systemtypetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <picker bindchange="systemtypefunc" value="{{systemtypeindex}}" range="{{systemtypearray}}" > 
+      <view class='chooseshouli'>
+        <view class="type-label">{{systemtypearray[systemtypeindex]}}</view>
+        <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
+      </view>
+      </picker>
+    </view>
+    <view class="divider"></view>
+
+     <view class="item">
+      {{contacttext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <picker bindchange="contactfunc" value="{{contactindex}}" range="{{contactarray}}" >  
+      <view class='chooseshouli'>
+        <view class="type-label">{{contactarray[contactindex]}}</view>
+        <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
+      </view>
+      </picker>
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{teltext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="telfunc" class='text' value="{{title}}" placeholder='{{telplaceholder}}'></input>     
+    </view>
+    <view class="divider"></view>
+
+    <view class="timeitem">   
+      {{occurretimetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <pickerYMDHM class='timechanger' placeholder = "{{occurretimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="occurretimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      </pickerYMDHM>
+    </view>
+    <view class="divider"></view> 
+
+    <view class='item'>
+      {{receivertext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="receiverfunc" class='text' value="{{title}}" placeholder='{{receiverplaceholder}}'></input>     
+    </view>
+    <view class="divider"></view>
+
+    <view class="timeitem">   
+      {{receivetimetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <pickerYMDHM class='timechanger' placeholder = "{{receivetimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="receivetimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      </pickerYMDHM>
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{uploadfile}}
+      <button bindtap="chooseFile" name='上传文件'>{{sourcefile}}</button>    
+    </view>
+    <view class="divider"></view>
+
+    <view class='info'>
+      {{descriptiontext}}
+      <textarea bindinput="descriptionfunc" placeholder='{{descriptionplaceholder}}' value='{{content}}' class='textarea'></textarea>
+    </view>
+
+    <view class='buttonitem'>
+      <button type="primary" bindtap="summit_action"> 提交 </button>
+      <button type="warn" bindtap="save_data"> 保存 </button>
+    </view>
+
+  </form>
+</view>

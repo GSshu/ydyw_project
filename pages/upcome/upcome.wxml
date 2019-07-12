@@ -1,0 +1,22 @@
+<!--pages/upcome/upcome.wxml-->
+<!--未完成-->
+<view class='cell'>
+  <view class='item1'>
+    <view class='title'>待办事项一</view>
+    <view class='divider'></view>
+    <view class='context'>技术开发部修改项目2需求</view>
+  </view>
+
+  <view class='item2'>
+    <view class='title'>待办事项二</view>
+    <view class='divider'></view>
+    <view class='context'>人力资源部门李四2019年6月17号请假</view>
+  </view>
+
+  <view class='item3'>
+    <view class='title'>待办事项三</view>
+    <view class='divider'></view>
+    <view class='context'>技术运行部王五2019年6月19号出差</view>
+  </view>
+</view>
+

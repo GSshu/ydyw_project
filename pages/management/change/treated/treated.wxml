@@ -1,0 +1,13 @@
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <!--标题 -->
+    <view class='item'>
+      123
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <textarea type='text' bindinput="topicfunc" class='text' value="456" placeholder="{{topicplacerhoder}}">456</textarea>     
+    </view>
+    <view class="divider"></view>
+
+  </form>
+</view>

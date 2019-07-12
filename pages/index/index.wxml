@@ -1,0 +1,141 @@
+<!--index.wxml-->
+<view>
+  <view class='imgview'>
+    <image src="/static/image/pjs.jpg" mode="widthFix" class='logoimage'></image>
+  </view>
+
+  <!-- <view  stytle=" overflow-x: hidden; overflow-y: auto;">
+    <view class="serach">
+      <view class="serach_view_show" bindtap="bindtap">{{search}}</view>
+    </view>
+  </view>
+   -->
+<view class='search'>
+<input type='text'  placeholder='请输入您要搜索的内容'placeholder-class="center" bindtap="bindFocus" auto-focus/>
+<icon type='search' class='icons'></icon>
+</view>
+  <!-----------------变更管理------------------->
+  <view  class="item">
+    <view class='changecolor'>
+      <view class="title">{{title.changemanagement}}</view>
+      <view class="manger">
+        <view class="item_right" bindtap="change_launch">
+        <view class='reddot'>0</view>
+            <image src="{{launch.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{launch.text}}</text></view>
+        </view>
+
+        <view class="item_right" bindtap="change_beforeuntreated">
+             <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+            <image src="{{untreated.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{untreated.text}}</text></view>
+        </view>
+        
+        <view class="item_right" bindtap="change_treated">
+        <view class='reddot'>10</view>
+            <image src="{{treated.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{treated.text}}</text></view>
+        </view>
+
+        <view class="item_right" bindtap="change_receive">
+        <view class='reddot'>10</view>
+            <image src="/static/image/submission.png" class="icon"/>
+            <view class="mark" ><text class="text">{{submission.text}}</text></view>
+        </view>
+      </view>
+    </view> 
+      
+  </view>
+
+  <!-----------------问题管理------------------->
+  <view  class="item"> 
+    <view class='issuecolor'>
+      <view class="title">{{title.issuemanagement}}</view>
+      <view class="manger">
+        <view class="item_right" bindtap="problem_launch">
+            <image src="{{launch.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{launch.text}}</text></view>
+        </view>
+
+        <view class="item_right" bindtap="isShowToast">
+            <image src="{{untreated.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{untreated.text}}</text></view>
+
+        </view>
+        <view class="item_right" bindtap="isShowToast">
+            <image src="{{treated.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{treated.text}}</text></view>
+        </view>
+
+        <view class="item_right" bindtap="isShowToast">
+            <image src="{{submission.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{submission.text}}</text></view>
+        </view>
+      </view> 
+    </view>
+  </view>
+
+  <!-----------------事件管理------------------->
+  <view  class="item">
+      <view class='eventcolor'>
+        <view class="title">{{title.eventmanagement}}</view>
+        <view class="manger">
+          <view class="item_right" bindtap="event_launch">
+              <image src="{{launch.url}}" class="icon"/>
+              <view class="mark" ><text class="text">{{launch.text}}</text></view>
+          </view>
+
+          <view class="item_right" bindtap="isShowToast">
+              <image src="{{untreated.url}}" class="icon"/>
+              <view class="mark" ><text class="text">{{untreated.text}}</text></view>
+          </view>
+
+          <view class="item_right" bindtap="isShowToast">
+              <image src="{{treated.url}}" class="icon"/>
+              <view class="mark" ><text class="text">{{treated.text}}</text></view>
+          </view>
+
+          <view class="item_right" bindtap="isShowToast">
+              <image src="{{submission.url}}" class="icon"/>
+              <view class="mark" ><text class="text">{{submission.text}}</text></view>
+          </view>
+        </view> 
+      </view>
+  </view>
+
+  <!-----------------员工管理------------------->
+  <view  class="item"> 
+    <view class='staffcolor'>
+      <view class="title">{{title.staffmanagement}}</view>
+      <view class="manger">
+     
+        <view class="item_right" bindtap="staff_launch">
+            <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+            <image src="{{launch.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{launch.text}}</text></view>
+        </view>
+
+        <view class="item_right" bindtap="staff_untreated">
+         <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+            <image src="{{untreated.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{untreated.text}}</text></view>
+        </view>
+
+        <view class="item_right" bindtap="isShowToast">
+         <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+            <image src="{{treated.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{treated.text}}</text></view>
+        </view>
+
+        <view class="item_right" bindtap="isShowToast">
+            <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+            <image src="{{submission.url}}" class="icon"/>
+            <view class="mark" ><text class="text">{{submission.text}}</text></view>
+              
+        </view>
+      </view> 
+    </view>
+  </view>
+
+</view>
+

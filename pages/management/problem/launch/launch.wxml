@@ -1,0 +1,120 @@
+<!--pages/problem/launch/launch.wxml-->
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class='item'>
+      {{changetopic}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputtitle" class='text' value="{{title}}" placeholder='请输入工单标题'></input>     
+    </view>
+    <view class="divider"></view>
+
+
+
+     <view class='item'>
+      {{piaojuleixing}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <radio-group name= "piaojuleixing" class="radiogroup" bindchange="launchchangeitems">
+        <label class="radio" wx:for="{{changeitemss}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="divider"></view>
+       <view class='item'>
+      {{jigouname}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='来电机构名称'></input>
+    </view> 
+   <view class="divider"></view>
+   
+       <view class='item'>
+      {{jigouhanghao}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='来电机构大额支付行号'></input>
+    </view> 
+   <view class="divider"></view>
+   
+
+    <view class='item'>
+      {{contact_name_1}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='请输入姓名'></input>
+    </view> 
+   <view class="divider"></view>
+
+    <view class='item'>
+      {{tel_1}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputtel" class='text' value='{{tel}}' placeholder='请输入电话号码'></input>
+    </view> 
+    <view class="divider"></view>
+
+ <view class="item">
+  请选择相关业务部门
+  <picker bindchange="yewubumen" value="{{index}}" range="{{array}}" >   <!-- 下拉框选择人 -->
+  <view class='chooseshouli'>
+    <view class="type-label">{{array[index]}}</view>
+    <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
+  </view>
+  </picker>
+</view>
+<view class="divider"></view>
+
+
+ <view class='item'>
+      {{yewushijianleibie}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='业务事件类别'></input>
+    </view> 
+   <view class="divider"></view>
+   
+     <view class='item'>
+      {{changwuslr}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='请输入场务受理人'></input>
+    </view> 
+   <view class="divider"></view>
+   
+
+
+      <view class="timeitem">   <!--时间选择框 -->
+    {{hopetimetext}}
+    <pickerYMDHM class='timechanger' placeholder = "{{hopetimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="onPickerChange" startDate="{{startDate}}" endDate="{{endDate}}">
+    </pickerYMDHM>
+</view>
+    <view class="divider"></view>
+
+        <view class='item'>
+      {{changwulxr}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='请输入场务联系人'></input>
+    </view> 
+   <view class="divider"></view>
+
+       <view class='item'>
+      {{changwulxrtel}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='请输入场务联系人电话'></input>
+    </view> 
+   <view class="divider"></view>
+    <!-- <view class='item'>
+      {{uploadfile}}
+      <button bindtap="chooseFile" name='上传文件'>{{sourcefile}}</button>    
+    </view>
+    <view class="divider"></view> -->
+
+
+    <view class='info'>
+      {{zixuncontent}}
+      <textarea bindinput="inputcontent" placeholder='请输入你的详细内容' value='{{content}}' class='textarea'></textarea>
+    </view>
+  
+    <view class='buttonitem'>
+    <button type="primary" bindtap="summit_action"> 提交 </button>
+    <button type="warn" bindtap="save_data"> 保存 </button>
+    <!-- <button type="warn"  form-type="reset" bindtap="warn"> 重置 </button> -->
+  </view>
+  </form>
+</view>
+

@@ -1,0 +1,117 @@
+/* component/checkGrop/checkGrop.wxss */
+page{
+  background: #f8f8f8;
+} 
+.content{ 
+  position: absolute; 
+  top:0; 
+  bottom:100rpx; 
+  width: 100%;
+} 
+.scrollLeft{
+  box-sizing: border-box; 
+  float: left;
+  width: 25%; 
+  height: 100%;
+  border-right: 1rpx solid #ddd; 
+  font-size: 35rpx;
+} 
+.scrollRight{ 
+  float: left; 
+  width: 75%; 
+  height: 100%; 
+} 
+.leftBox{
+   position: relative; 
+   box-sizing: border-box;
+   width: 100%; 
+   height: 100rpx; 
+   display: flex; 
+   justify-content: center; 
+   align-items:center; 
+   border-bottom: 1rpx solid #ddd; 
+} 
+.num{ 
+  position: absolute; 
+  top:10rpx; 
+  right: 10rpx; 
+  width: 30rpx; 
+  height: 30rpx; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  background-color: #f10215; 
+  border-radius: 50%; 
+  color: white; font-size: 22rpx; 
+} 
+.rightBox{ 
+  box-sizing: border-box; 
+  width: 100%; 
+} 
+.weui-cells { 
+  position: relative; 
+  margin-top: 1.17647059em; 
+  background-color: #FFFFFF; 
+  line-height: 1.41176471; 
+  font-size: 17px; 
+} 
+.weui-cells_after-title { 
+  margin-top: 0; 
+} 
+.weui-cell { 
+  padding: 10px 15px; 
+  position: relative; 
+  display: -webkit-box; 
+  display: -webkit-flex; 
+  display: flex; 
+  -webkit-box-align: center; 
+  -webkit-align-items: center;
+   align-items: center; 
+} 
+.weui-check__label:active { 
+  background-color: #ECECEC; 
+} 
+.weui-check { 
+  position: absolute; 
+  left: -9999px; 
+} 
+.weui-check__hd_in-checkbox { 
+  padding-right: 0.35em; 
+} 
+.weui-icon-checkbox_circle, .weui-icon-checkbox_success {
+   margin-left: 4.6px; 
+   margin-right: 4.6px;
+} 
+.weui-cell__bd { 
+  -webkit-box-flex: 1; 
+  -webkit-flex: 1; 
+  flex: 1;
+} 
+.btn-area{ 
+  position: absolute; 
+  bottom: 0; 
+  width: 100%; 
+  height: 100rpx; 
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+   margin-top: 20rpx; 
+} 
+.btn-area>button:first-child{
+   width: 30%; 
+   height: 80%; 
+   color: white; 
+   background-color: orange; 
+   display: flex; 
+   justify-content: center; 
+   align-items: center; 
+} 
+.btn-area>button:last-child{ 
+  width: 65%; 
+  height: 80%; 
+  color: white; 
+  background-color: #1aad16; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+ }

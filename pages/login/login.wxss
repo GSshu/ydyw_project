@@ -1,0 +1,53 @@
+/* pages/login/login.wxss */
+.container{
+  background-color: #ffffff;
+  font-size: 35rpx;
+}
+
+.topimgview{
+  margin: 20rpx 30rpx;
+  margin-bottom: 50rpx;
+}
+
+.topimage{
+  max-width: 100%;
+  display: block;
+}
+
+.logoimage{
+  width: 50rpx;
+  height: 50rpx;
+  padding-left: 20rpx;
+}
+
+
+.userpwd{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: rgb(245, 243, 239); 
+  margin: 0 auto;
+  border-radius: 15rpx;
+}
+
+.text{
+  float: right;
+  padding-right: 80rpx;
+}
+
+.divider { 
+  height: 3rpx;
+  background-color: #cecbcb;
+  margin: 0 8rpx;
+}
+
+.item{
+  flex-direction: row;
+  padding: 20rpx 30rpx;
+}
+
+.loginbtn{
+  background-color: #5ce757; 
+  width: 80%;
+  margin-top: 35px;
+}

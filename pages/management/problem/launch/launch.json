@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "场务问题-发起",
+  "usingComponents": {
+    "popup": "/component/popup/popup",
+    "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM"
+  }
+}

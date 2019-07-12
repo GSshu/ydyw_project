@@ -1,0 +1,79 @@
+<!--pages/management/staff/launch/launch.wxml-->
+ <view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <!--标题 -->
+    <view class='item'>
+      {{topictext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="topicfunc" class='text' value="{{topic}}" placeholder="{{userplaceholder}}"></input>     
+    </view>
+    <view class="divider"></view>
+
+    <!--开始时间选择框 -->
+    <view class="timeitem">   
+      {{begintimetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <pickerYMDHM class='timechanger' placeholder = "{{begintimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="begintimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      </pickerYMDHM>
+    </view>
+    <view class="divider"></view>
+
+<!--结束时间选择框 -->
+    <view class="timeitem">   
+      {{endtimetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <pickerYMDHM class='timechanger' placeholder = "{{endtimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="endtimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      </pickerYMDHM>
+    </view>
+    <view class="divider"></view>
+
+    <!--请假天数 -->
+    <view class='item'>
+      {{daynumtext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="daynumfunc" class='text' value="{{daynum}}" placeholder="{{daynumplaceholder}}"></input>     
+    </view>
+    <view class="divider"></view>
+
+    <!--代理人-->
+    <view class='item'>
+      {{receivertext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="receiverfunc" class='text' value="{{receiver}}" placeholder="{{receiverplaceholder}}"></input>     
+    </view>
+    <view class="divider"></view>
+
+    <!--申请类型-->
+    <view class="item">
+      {{eventtypetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <picker bindchange="typefunc" value="{{typeindex}}" range="{{eventarray}}" >   <!-- 下拉框选择人 -->
+      <view class='chooseshouli'>
+        <view class="type-label">{{eventarray[typeindex]}}</view>
+        <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
+      </view>
+      </picker>
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{uploadfile}}
+      <button bindtap="chooseFile" name='上传文件'>{{sourcefile}}</button>    
+    </view>
+    <view class="divider"></view>
+
+    <!--具体原因-->
+    <view class='info'>
+      {{reasontext}}
+      <textarea bindinput="reasonfunc" placeholder='请输入你的详细内容' value='{{reason}}' class='textarea'></textarea>
+    </view>
+
+    <view class='buttonitem'>
+    <button type="primary" bindtap="summit_action"> 提交 </button>
+    <button type="warn" bindtap="save_data"> 保存 </button>
+    <!-- <button type="warn"  form-type="reset" bindtap="warn"> 重置 </button> -->
+  </view>
+
+  </form>
+</view>

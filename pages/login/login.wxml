@@ -1,0 +1,27 @@
+<!--pages/login/login.wxml-->
+<view>
+  <view class='container'>
+    <view class='topimgview'>
+      <image src='{{topimge}}' mode="widthFix" class='topimage'></image>
+    </view>
+
+    <view class='userpwd'>
+      <view class='item'> 
+        <input type='text' bindinput="inputName" class='text' value="{{topic}}" placeholder="{{userplaceholder}}"></input> 
+        <image src='{{userimage}}' class='logoimage'></image>
+      </view>
+
+    <view class='divider'></view>
+
+      <view class='item'>
+        <input type='text' password="true" bindinput="inputPwd" class='text' value="{{topic}}" placeholder="{{pwdplaceholder}}"></input> 
+        <image src='{{pwdimage}}' class='logoimage'></image>
+      </view>
+    </view>
+
+    <view class="login">
+      <button class='loginbtn' type='primary ' size='{{primarysize }}'loading='{{loading}}' plain="{{plain}}"bindtap="log">登录</button>
+    </view>
+
+  </view>
+</view>

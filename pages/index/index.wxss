@@ -1,0 +1,147 @@
+/**index.wxss**/
+.serach{
+    margin: 0 75rpx;
+    background-color: #F3F3F3;
+    border-radius: 15rpx;
+    margin-bottom: 25rpx;
+}
+
+.serach_view_show{
+    display: block;
+    color: #808080;
+    padding: 20rpx 0;
+    font-size: 28rpx;
+    background-color: #F3F3F3;
+    border-radius: 15rpx;
+    text-align: center;
+}
+
+.imgview{
+  margin: 20rpx 30rpx;
+}
+
+.logoimage{
+  max-width: 100%;
+  display: block;
+}
+
+.title{
+  padding-top: 25rpx; 
+  font-size: 25rpx;
+  padding-left: 20rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.manger{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin: 25rpx 0rpx;
+}
+
+.item_right{
+  
+}
+
+.text{
+  display: block;
+  color: #000000;
+  line-height: 10rpx;
+  font-size: 22rpx;
+  text-align: center;
+}
+
+.iconnum{
+  width: 88rpx; 
+  height: 88rpx;
+  position: relative;
+  border: solid 1rpx #000000;
+}
+
+.icon{
+  width: 88rpx; 
+  height: 88rpx;
+}
+
+.shownum{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 30rpx;
+  background-color: #e90e0e;
+  color: #ffffff;
+  border-radius: 20rpx;
+}
+
+.divider {
+  width: 100%;
+  height: 5rpx;
+  background-color: #f0f0f0;
+}
+
+.changecolor{
+  margin: 5rpx 10rpx;
+  border: 2rpx #f5c5c5 solid;
+}
+
+.issuecolor{
+  margin: 5rpx 10rpx;
+  border: 2rpx #f5f18d solid;
+}
+
+.eventcolor{
+  margin: 5rpx 10rpx;
+  border: 2rpx #c7f7ab solid;
+}
+
+.staffcolor{
+  margin: 5rpx 10rpx;
+  border: 2rpx #cdedf8 solid;
+}
+
+.reddot {
+    max-height: 40rpx;
+    width: 40rpx;
+    border-radius: 20rpx;
+    background: 228B22;
+    text-align: center;
+    background-color: red;
+    font-size: 26rpx;
+    color: white;
+    overflow: hidden;
+}
+
+.center{
+text-align: center;
+}
+
+.search{
+position: relative;
+}
+.search input{
+border:1px solid #ccc;
+border-radius: 9px;
+margin: 20rpx; 
+height: 30px;
+}
+.icons{
+position: absolute;
+right: 20px;
+top:5px;
+}
+.lists{
+text-align: center;
+margin-top: 20px;
+color: rgb(230, 124, 25);
+}
+
+
