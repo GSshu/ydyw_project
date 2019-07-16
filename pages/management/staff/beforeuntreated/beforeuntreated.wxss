@@ -8,21 +8,7 @@
   color: #494848;
   border-radius: 20rpx;
 }
-.item1{
-  width: 100%;
-  border-radius: 20rpx;
-  margin-bottom: 20rpx;
-  background-color: rgb(238, 248, 201);
-}
-
-.item2{
-  width: 100%;
-  border-radius: 20rpx;
-  margin-bottom: 20rpx;
-  background-color: rgb(233, 177, 177);
-}
-
-.item3{
+.item{
   width: 100%;
   border-radius: 20rpx;
   margin-bottom: 20rpx;
@@ -31,7 +17,7 @@
 
 .title{
   width: 90%;
-  padding: 15rpx 0;
+  padding: 25rpx 0;
   margin: 0 auto;
 }
 

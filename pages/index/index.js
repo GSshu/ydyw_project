@@ -93,6 +93,12 @@ Page({
     })
   },
 
+  staff_treated:function(){
+    wx.navigateTo({
+      url: '../management/staff/untreated/untreated',
+    })
+  },
+
   change_untreated:function () {
     wx.navigateTo({
       url: '../management/change/untreated/untreated',
@@ -174,7 +180,7 @@ Page({
     {
       app.globalData.refreshFlag = true;
       wx.request({
-        url: 'http://www.ydyw.com:8008/obtaindata/',	//获取服务器地址，此处为本地地址
+        url: 'http://www.ydyw.com:8008/staff/obtaintickets/',	//获取服务器地址，此处为本地地址
         header: {
           "content-type": "application/x-www-form-urlencoded"		//使用POST方法要带上这个header
         },

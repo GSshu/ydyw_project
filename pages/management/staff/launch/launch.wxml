@@ -70,8 +70,8 @@
     </view>
 
     <view class='buttonitem'>
-    <button type="primary" bindtap="summit_action"> 提交 </button>
-    <button type="warn" bindtap="save_data"> 保存 </button>
+    <button type="primary" bindtap="summit_action"> 审批 </button>
+    <button type="warn" bindtap="save_data"> 驳回 </button>
     <!-- <button type="warn"  form-type="reset" bindtap="warn"> 重置 </button> -->
   </view>
 

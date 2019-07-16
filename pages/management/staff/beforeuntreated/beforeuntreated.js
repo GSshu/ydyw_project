@@ -11,6 +11,13 @@ Page({
 
     worknumber: '',
     worktopic: '',
+
+    detaildata:[],
+
+    workflow_id:1,
+
+    numberofdata:0,
+    index:0,
   },
   
  gotoPage:function(){
@@ -22,10 +29,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var app = getApp();     // 取得全局App
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com:8008/obtaindata',
-      data: {},
+      url: 'http://www.ydyw.com:8008/staff/obtaintickets',
+      data: {
+        username: app.globalData.global_username,
+        workflow_id: that.data.workflow_id,
+      },
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -33,6 +44,10 @@ Page({
       success: function (res) {
         console.log("成功了！")
         console.log(res)
+        numberofdata: res.data[1]["duty"]
+        detaildata: res.data[1]["duty"]
+        console.log(res.data[2])
+        console.log(that.data.detaildata)
       },
       fail: function () {
         console.log("失败了！")

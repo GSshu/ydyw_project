@@ -24,6 +24,7 @@ Page({
   },
 
   log: function (e) {		//与服务器进行交互
+    var that = this
     wx.request({
       url: 'http://www.ydyw.com/xcxlogin/',	//获取视图的url
       header: {
@@ -46,6 +47,11 @@ Page({
             icon: 'success',
             duration: 10000,
             success: function () {
+              var app = getApp();     // 取得全局App
+              app.globalData.global_username = that.data.username,
+              app.globalData.global_pwd = that.data.passwd,
+              console.log("测试")
+              console.log(app.globalData.global_pwd)
               wx.switchTab({
                 url: '../index/index'
               })

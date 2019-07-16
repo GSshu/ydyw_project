@@ -1,9 +1,11 @@
 <!--pages/beforeuntreated/beforeuntreated.wxml-->
 <view class='cell'>
-  <view class='item1'>
+
+  <view class='item'>
     <view class='title'>{{worknumbertext}}{{worknumber}}</view>
     <view class='divider'></view>
     <view class='context'>{{worktopictext}}</view>
     <button bindTap = "gotoPage">{{details}}</button>
   </view>
+  
 </view>

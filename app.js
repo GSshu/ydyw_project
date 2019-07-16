@@ -35,6 +35,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    refreshFlag: true
+    refreshFlag: true,
+    global_username:'',
+    global_pwd:'',
   }
 })

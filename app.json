@@ -1,29 +1,24 @@
 {
   "pages": [
-    "pages/index/index",   
-    "pages/login/login",  
-
-    "pages/search/search",  
+    "pages/login/login",
+    "pages/index/index",
+    "pages/management/staff/untreated/untreated",
+   
+    "pages/management/staff/beforeuntreated/beforeuntreated",
+    "pages/search/search",
+    
     "pages/result/result",  
-
     "pages/management/change/launch/launch",
     "pages/management/change/treated/treated",
     "pages/management/change/receive/receive",
     "pages/management/change/beforeuntreated/beforeuntreated",
     "pages/management/change/untreated/untreated",
-
     "pages/management/staff/launch/launch",  
-    "pages/management/staff/beforeuntreated/beforeuntreated", 
-    "pages/management/staff/untreated/untreated",  
+    
     "pages/management/staff/treated/treated",  
     "pages/management/staff/receive/receive",  
-
-
     "pages/management/event/launch/launch", 
-
     "pages/management/problem/launch/launch", 
-
-
     "pages/user/user",
     "pages/upcome/upcome"
   ],

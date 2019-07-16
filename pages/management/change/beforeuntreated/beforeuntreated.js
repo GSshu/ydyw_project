@@ -24,19 +24,21 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://apis.baidu.com/heweather/weather/free',
-      data: { city: 'beijing' },
+      url: 'http://www.ydyw.com:8008/staff/obtaindata',
+      data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: { apikey: 'a37c01591e47494fe320137dbc0fd423' }, // 设置请求的 header
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       success: function (res) {
-        // success
+        console.log("成功了！")
         console.log(res)
       },
       fail: function () {
-        // fail
+        console.log("失败了！")
       },
       complete: function () {
-        // complete
+        console.log("完成了！")
       }
     })
   },

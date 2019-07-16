@@ -1,2 +1,87 @@
 <!--pages/management/staff/untreated/untreated.wxml-->
-<text>pages/management/staff/untreated/untreated.wxml</text>
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <!--工单 -->
+    <view class='item'>
+      {{listidtext}}
+     <view class='text'>{{listid}}</view>  
+    </view>
+    <view class="divider"></view>
+
+   <!--标题 -->
+    <view class='item'>
+      {{topictext}}
+     <view class='text'>{{topic}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--开始时间-->
+    <view class='item'>
+      {{begintimetext}}
+     <view class='text'>{{begintime}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--结束时间-->
+    <view class='item'>
+      {{endtimetext}}
+     <view class='text'>{{endtime}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--0.5的倍数-->
+    <view class='item'>
+      {{daynumtext}}
+     <view class='text'>{{daynum}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--代理人-->
+    <view class='item'>
+      {{receivertext}}
+     <view class='text'>{{receiver}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--申请类型-->
+    <view class='item'>
+      {{eventtypetext}}
+     <view class='text'>{{eventtype}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--申请原因-->
+    <view class='item'>
+      {{reasontext}}
+     <view class='text'>{{reason}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--创建人-->
+    <view class='item'>
+      {{creatortext}}
+     <view class='text'>{{creator}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--创建时间-->
+    <view class='item'>
+      {{createtimetext}}
+     <view class='text'>{{createtime}}</view>  
+    </view>
+    <view class="divider"></view>
+
+     <!--处理意见 -->
+    <view class='info'>
+      {{opiniontext}}
+      <textarea bindinput="opiniofunc" placeholder='请输入你的意见' value='{{opinion}}' class='textarea'></textarea>
+    </view>
+
+    <view class='buttonitem'>
+    <button type="primary" bindtap="agree_action"> 审批 </button>
+    <button type="warn" bindtap="disagree_action"> 驳回 </button>
+    </view>
+    
+  </form>
+</view>

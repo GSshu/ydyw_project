@@ -56,14 +56,13 @@ Page({
           //向服务器发送的信息
           staff_workflow_id: this.data.workflow_id,
           staff_submit_id: this.data.submit_id,
-          staff_save_id: this.data.save_id,
-          staff_topic: this.data.topic,
-          staff_begintime: this.data.begintime,
-          staff_endtime: this.data.endtime,   //文字
-          staff_daynum: this.data.daynum,   //文字
-          staff_receiver: this.data.receiver,
-          staff_eventtype: this.data.typeindex,
-          staff_reason: this.data.reason,
+          staff_title: this.data.topic,
+          staff_leave_start: this.data.begintime,
+          staff_leave_proxy: this.data.endtime,   //文字
+          staff_leave_days: this.data.daynum,   //文字
+          staff_leave_proxy: this.data.receiver,
+          staff_leave_type: this.data.typeindex,
+          staff_leave_reason: this.data.reason,
         },
         success: function (res) {
           if (res.data.status == 200) {
