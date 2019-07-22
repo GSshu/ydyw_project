@@ -38,5 +38,7 @@ App({
     refreshFlag: true,
     global_username:'',
     global_pwd:'',
+    ticket_id:-1,
+    state_id:-1,
   }
 })

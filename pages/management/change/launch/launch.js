@@ -154,7 +154,7 @@ multiple: true,
        success: function (res) {
          var tempFilePaths = res.tempFilePaths
          wx.uploadFile({
-           url: 'http://192.168.163.13:8009/launch/uploadImg/', //仅为示例，非真实的接口地址
+           url: 'http://192.168.1.199:8008/media', //仅为示例，非真实的接口地址
            filePath: tempFilePaths[0],
            name: 'file',
            formData: {
@@ -162,6 +162,7 @@ multiple: true,
            },
            success: function (res) {
              var data = res.data
+             console.log("上传成功")
              //do something
            }
          })

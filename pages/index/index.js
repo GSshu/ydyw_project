@@ -95,7 +95,7 @@ Page({
 
   staff_treated:function(){
     wx.navigateTo({
-      url: '../management/staff/untreated/untreated',
+      // url: '../management/staff/untreated/untreated',
     })
   },
 
@@ -105,9 +105,15 @@ Page({
     })
   },
 
-  change_treated: function () {
+  change_treated: function (){
     wx.navigateTo({
       url: '../management/change/treated/treated',
+    })
+  },
+
+  staff_related:function(){
+    wx.navigateTo({
+      url: '../management/staff/related/related',
     })
   },
 
@@ -132,6 +138,8 @@ Page({
   bindFocus: function () {
     wx.navigateTo({
       url: '../search/search',
+      //url: '../wxSearch/wxSearch',
+      // url: '../../component/wxSearch/wxSearch',
     })
   },
 
@@ -176,6 +184,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var app = getApp();
     if (app.globalData.refreshFlag)
     {
       app.globalData.refreshFlag = true;
@@ -184,10 +193,10 @@ Page({
         header: {
           "content-type": "application/x-www-form-urlencoded"		//使用POST方法要带上这个header
         },
-        method: "GET",
+        method: "POST",
         data: {		//向服务器发送的信息
-          staff_workflow_id: "1,",
-          staff_username: "admin"
+          workflow_id: 1,
+          username: app.globalData.global_username,
         },
         success: res => {       //回调函数
           if (res.statusCode == 200) {   //信息 登录成功

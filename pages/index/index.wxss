@@ -131,7 +131,7 @@ position: relative;
 border:1px solid #ccc;
 border-radius: 9px;
 margin: 20rpx; 
-height: 30px;
+height: 35px;
 }
 .icons{
 position: absolute;

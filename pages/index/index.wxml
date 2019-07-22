@@ -11,7 +11,7 @@
   </view>
    -->
 <view class='search'>
-<input type='text'  placeholder='请输入您要搜索的内容'placeholder-class="center" bindtap="bindFocus" autofocus="autofocus"/>
+<input type='text'  placeholder='请输入您要搜索的内容' placeholder-class="center" bindtap="bindFocus" autofocus="autofocus"/>
 <icon type='search' class='icons'></icon>
 </view>
   <!-----------------变更管理------------------->
@@ -127,7 +127,7 @@
             <view class="mark" ><text class="text">{{treated.text}}</text></view>
         </view>
 
-        <view class="item_right" bindtap="isShowToast">
+        <view class="item_right" bindtap="staff_related">
             <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
             <image src="{{submission.url}}" class="icon"/>
             <view class="mark" ><text class="text">{{submission.text}}</text></view>

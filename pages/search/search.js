@@ -1,81 +1,59 @@
-//index.js
-//获取应用实例
-var app = getApp()
+import * as wxSearch from '../../component/wxSearch/wxSearch';
+import { getStorage, setStorage } from '../../utils/util';
+// pages/search/search.js
 Page({
-  data: {
-    selectHide: false,
-    inputValue: '',
-    getSearch: [],
-    modalHidden: true
-  },
-  bindInput: function (e) {
-    this.setData({
-      inputValue: e.detail.value
-    })
-    console.log('bindInput' + this.data.inputValue)
-  },
-  setSearchStorage: function () {
-    let data;
-    let localStorageValue = [];
-    if (this.data.inputValue != '') {
-      //调用API从本地缓存中获取数据
-      var searchData = wx.getStorageSync('searchData') || []
-      searchData.push(this.data.inputValue)
-      wx.setStorageSync('searchData', searchData)
-      wx.navigateTo({
-        url: '../result/result'
-      })
-      // console.log('马上就要跳转了！')
-    } else {
-      console.log('空白的你搜个jb')
-    }
-    // this.onLoad();
-  },
-  modalChangeConfirm: function () {
-    wx.setStorageSync('searchData', [])
-    this.setData({
-      modalHidden: true
-    })
-    wx.redirectTo({
-      url: '../search/search'
-    })
-    // this.onLoad();
 
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    tabData: {
+      searchList: getStorage('searchList'),
+      hotsSearch: ['王建军', '潘隆禧'], activeIndex: 0,
+      // sliderOffset: 0,
+      sliderLeft: 0,
+      searchIsHidden: true,
+      searchAllShow: false,
+      inputVal: '',
+      cancelHidden:true
+    }
   },
-  modalChangeCancel: function () {
-    this.setData({
-      modalHidden: true
-    })
+  onLoad: function (options) {
+    //初始渲染-读取storage的历史记录
+    wxSearch.init(this)
   },
-  clearSearchStorage: function () {
-    this.setData({
-      modalHidden: false
-    })
-    // this.onLoad();
+  bindSearchAllShow: function (e) {
+    wxSearch.bindSearchAllShow(e, this)
   },
-  onLoad: function () {
-    console.log('search is onLoad');
+  bindInputSchool: function (e) {
+    wxSearch.bindInputSchool(e, this)
   },
-  onShow: function () {
-    var getSearch = wx.getStorageSync('searchData');
-    this.setData({
-      getSearch: getSearch,
-      inputValue: ''
-    })
-    console.log('search is onshow')
+  bindGoSearch: function (e) {
+    wxSearch.bindGoSearch(e, this)
   },
-  onHide: function () {
-    console.log('search is onHide')
-    wx.redirectTo({
-      url: '../search/search'
-    })
+  bindClearSearch: function () {
+    wxSearch.updataLog(this,[])
   },
-  bindchange: function (e) {
-    console.log('bindchange')
+  bindGoSchool(e) {
+    let val = e.currentTarget.dataset.item;
+    wxSearch.goSchool(val)
   },
-  clearInput: function () {
-    this.setData({
-      inputValue: ''
-    })
+  bindDelLog(e) {
+    wxSearch.bindDelLog(e, this)
+  },
+  bindShowLog(e) {
+    wxSearch.bindShowLog(e, this)
+  },
+  bindHideLog(e) {
+    wxSearch.bindHideLog(e, this)
+  },
+  bindSearchHidden() {
+    wxSearch.bindSearchHidden(this)
+  },
+  bindCancle(e){
+    wxSearch.bindCancle(e,this)
+  },
+  hiddenCancel(e) {
+    wxSearch.hiddenCancel(e, this)
   }
 })

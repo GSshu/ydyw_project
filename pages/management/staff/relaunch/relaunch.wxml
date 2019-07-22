@@ -57,6 +57,15 @@
     </view>
     <view class="divider"></view>
 
+    <!--状态名 -->
+    <!-- <view class='item'>
+      {{conditiontext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <view class='text'>{{condition}}</view>      
+    </view>
+    <view class="divider"></view> -->
+
+    <!--上传附件 -->
     <view class='item'>
       {{uploadfile}}
       <button bindtap="chooseFile" name='上传文件'>{{sourcefile}}</button>    
@@ -71,7 +80,7 @@
 
     <view class='buttonitem'>
     <button type="primary" bindtap="summit_action"> 提交 </button>
-    <button type="warn" bindtap="save_data"> 保存 </button>
+    <button type="warn" bindtap="save_data"> 重置 </button>
     <!-- <button type="warn"  form-type="reset" bindtap="warn"> 重置 </button> -->
   </view>
 

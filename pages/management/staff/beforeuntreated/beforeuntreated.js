@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    worknumbertext:'工单编号',
-    worktopictext: '工单主题',
+    worknumbertext:'工单编号：',
+    worktopictext: '工单主题：',
     details:'详情',
 
     worknumber: '',
@@ -16,14 +16,33 @@ Page({
 
     workflow_id:1,
 
-    numberofdata:0,
+    numberofdata:100,
     index:0,
+    state_id: 0,
   },
+
+  zhengzhuang: function (e) {
+    var that = this;
+    //获取下标
+    var idx = e.currentTarget.dataset.index;
+    console.log(idx)
+  },
+
   
- gotoPage:function(){
-   wx.navigateTo({
-     url: '../management/change/untreated/untreated',
-   })
+  gotoPage:function(e){
+    var app = getApp(); 
+    app.globalData.ticket_id = this.data.detaildata[e.currentTarget.dataset.index]['ticket_id']
+    app.globalData.state_id = this.data.detaildata[e.currentTarget.dataset.index]['state_id']
+    if (app.globalData.state_id == 3){
+      wx.navigateTo({
+        url: '../untreated/untreated',
+      }) 
+    }
+    else if (app.globalData.state_id == 2){
+      wx.navigateTo({
+        url: '../relaunch/relaunch',
+      })
+    }
  },
   /**
    * 生命周期函数--监听页面加载
@@ -32,22 +51,22 @@ Page({
     var app = getApp();     // 取得全局App
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com:8008/staff/obtaintickets',
+      url: 'http://www.ydyw.com:8008/staff/obtaintickets/',
       data: {
         username: app.globalData.global_username,
         workflow_id: that.data.workflow_id,
       },
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log("成功了！")
         console.log(res)
-        numberofdata: res.data[1]["duty"]
-        detaildata: res.data[1]["duty"]
-        console.log(res.data[2])
-        console.log(that.data.detaildata)
+        that.setData({
+          //numberofdata: res.data[1]["duty"],
+        detaildata: res.data[2],
+        })
       },
       fail: function () {
         console.log("失败了！")

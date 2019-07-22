@@ -54,7 +54,7 @@
     <!--申请原因-->
     <view class='item'>
       {{reasontext}}
-     <view class='text'>{{reason}}</view>  
+     <view class='reason'>{{reason}}</view>  
     </view>
     <view class="divider"></view>
 
@@ -82,6 +82,5 @@
     <button type="primary" bindtap="agree_action"> 审批 </button>
     <button type="warn" bindtap="disagree_action"> 驳回 </button>
     </view>
-    
   </form>
 </view>

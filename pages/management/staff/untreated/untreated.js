@@ -16,8 +16,12 @@ Page({
     opiniontext:'处理意见',
     createtimetext:'创建时间',
     creatortext:'创建人',
+    conditiontext:'状态名',
 
-    ticket_id: '4',
+    //ticket_id: '4',
+
+    accept_id: 0,
+    refuse_id: 0,
 
     listid:'',
     date_time: '',
@@ -33,46 +37,82 @@ Page({
     opinion:'',
   },
 
+  opiniofunc:function(e){
+    this.setData({
+      opinion: e.detail.value
+    })
+  },
+
+  //审批同意将accept_id上传
   agree_action:function(){
+    var app = getApp();
     if (this.data.opinion) {
       wx.request({
-        url: 'http://www.ydyw.com:8008/staff/ticketagree',
+        url: 'http://www.ydyw.com:8008/staff/ticketagree/',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
         method: "POST",
         data: {
           username: app.globalData.global_username,
-          staff_ticket_id: that.data.ticket_id,
+          staff_ticket_id: app.globalData.ticket_id,
+          staff_transition_id: this.data.accept_id,
           process_opinion: this.data.opinion,
         },
         success: function (res) {
-          if (res.data.status == 200) {
-            this.setData({
-              result: res.data	//服务器返回的结果
+          if (res.statusCode == 200) {
+            wx.showToast({
+              title: '提交成功啦',
+              icon: 'success',
+              duration: 2000,
+              success: function () {
+                setTimeout(function () {
+                  wx.reLaunch({
+                    url: '../../../index/index'
+                  })
+                }, 800)
+              }
             })
           }
-          wx.showToast({
-            title: '提交成功啦',
-            icon: 'success',
-            duration: 2000,
-            success: function () {
-              setTimeout(function () {
-                wx.reLaunch({
-                  url: '../../../index/index'
-                })
-              }, 800)
-            }
-          })
         }
       })
     }
   },
 
+  //驳回将refuse_id上传
   disagree_action: function (e) {
-    this.setData({
-      opinion: e.detail.value
-    })
+    var app = getApp();
+    if (this.data.opinion) {
+      wx.request({
+        url: 'http://www.ydyw.com:8008/staff/ticketagree/',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: "POST",
+        data: {
+          username: app.globalData.global_username,
+          staff_ticket_id: app.globalData.ticket_id,
+          staff_transition_id: this.data.refuse_id,
+          process_opinion: this.data.opinion,
+        },
+        success: function (res) {
+          if (res.statusCode == 200) {
+            wx.showToast({
+              title: '提交成功啦',
+              icon: 'success',
+              duration: 2000,
+              success: function () {
+                setTimeout(function () {
+                  wx.reLaunch({
+                    url: '../../../index/index'
+                  })
+                }, 800)
+              }
+            })
+          }
+        }
+      })
+    }
   },
 
   /**
@@ -90,18 +130,18 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 加载页面获取
    */
   onShow: function () {
     var app = getApp();
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com:8008/staff/obtainticketdata',
+      url: 'http://www.ydyw.com:8008/staff/obtainticketdata/',
       data: {
         username: app.globalData.global_username,
-        staff_ticket_id: this.data.ticket_id,
+        staff_ticket_id: app.globalData.ticket_id,
       },
-      method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
@@ -119,6 +159,31 @@ Page({
         reason: res.data[7],
         creator: res.data[8],
         createtime: res.data[9],
+        })
+      },
+      fail: function () {
+        console.log("失败了！")
+      },
+      complete: function () {
+        console.log("完成了！")
+      }
+    }),
+    wx.request({
+      url: 'http://www.ydyw.com:8008/staff/trans/',
+      data: {
+        username: app.globalData.global_username,
+        staff_ticket_id: app.globalData.ticket_id,
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log("获取transition_id成功了！")
+        console.log(res.data)
+        that.setData({
+          accept_id: res.data.accept,
+          refuse_id: res.data.refuse,
         })
       },
       fail: function () {

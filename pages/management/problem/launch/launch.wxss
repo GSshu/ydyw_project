@@ -62,7 +62,7 @@
 
 .buttonitem{
   display: flex;
-  margin-top: 20rpx;
+  margin-bottom: 50rpx;
 }
 
 .buttonitem button{

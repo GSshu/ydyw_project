@@ -1,4 +1,3 @@
-// pages/management/staff/launch/launch.js
 Page({
 
   /**
@@ -13,16 +12,17 @@ Page({
     eventtypetext: '申请类型',
     uplodetext: '请选择上传文件',
     reasontext: '申请具体原因',
-    uploadfile:'请选择上传文件',
+    uploadfile: '请选择上传文件',
     sourcefile: '选择文件',
+    conditiontext: '状态名',
 
-    topicplacerhoder:'请输入你的主题',
-    begintimeplaceholder:'开始时间',
-    endtimeplaceholder:'结束时间',
+    topicplacerhoder: '请输入你的主题',
+    begintimeplaceholder: '开始时间',
+    endtimeplaceholder: '结束时间',
     daynumplaceholder: '请输入请假天数',
     receiverplaceholder: '请输入代理人',
 
-    date_time:'',
+    date_time: '',
     topic: '',
     begintime: '',
     endtime: '',
@@ -30,6 +30,7 @@ Page({
     receiver: '',
     eventtype: '',
     reason: '',
+    condition: '',
 
     workflow_id: 1,
     submit_id: 1,
@@ -43,7 +44,7 @@ Page({
     xialajiantou: "../../../../static/image/xialajiantou.png",
   },
 
-  summit_action:function(e){
+  summit_action: function (e) {
     //后台提交方法
     if (this.data.topic && this.data.begintime && this.data.endtime && this.data.daynum && this.data.receiver && this.data.eventtype) {
       wx.request({
@@ -51,18 +52,8 @@ Page({
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
-        method: "POST",
+        method: "GET",
         data: {
-          //向服务器发送的信息
-          staff_workflow_id: this.data.workflow_id,
-          staff_transition_id: this.data.submit_id,
-          staff_title: this.data.topic,
-          staff_leave_start: this.data.begintime,
-          staff_leave_end: this.data.endtime,   
-          staff_leave_days: this.data.daynum,   
-          staff_leave_proxy: this.data.receiver,
-          staff_leave_type: this.data.typeindex,
-          staff_leave_reason: this.data.reason,
         },
         success: function (res) {
           console.log(res)
@@ -83,13 +74,14 @@ Page({
         }
       })
       wx.clearStorage()
-  }
+    }
     else {
       wx.showToast({
         title: '提交失败！',
         icon: 'none',
         duration: 5000
-      })}
+      })
+    }
   },
 
   // summit_action: function (e) {
@@ -102,7 +94,7 @@ Page({
   //       },
   //       method: "get",
   //       data: {
-          
+
   //       },
   //       success: function (res) {
   //         console.log(res.data)
@@ -110,7 +102,7 @@ Page({
   //     })
   // },
 
-  save_data:function(e){
+  save_data: function (e) {
     console.log('form发生了保存事件')
     console.log(e.detail);
     var objData = e.detail;
@@ -118,7 +110,7 @@ Page({
     wx.setStorage({
       key: 'staff_topic',
       data: this.data.topic,
-    }) 
+    })
 
     //开始时间
     wx.setStorage({
@@ -149,12 +141,12 @@ Page({
       key: 'staff_eventtype',
       data: this.data.eventtype,
     })
-    
+
     //具体原因
     wx.setStorage({
       key: 'staff_reason',
       data: this.data.reason,
-    }) 
+    })
   },
 
   //输入标题
@@ -199,14 +191,14 @@ Page({
         typeindex: e.detail.value,
         eventtype: '选择',
       })
-    } 
+    }
 
     if (e.detail.value == 1) {
       this.setData({
         typeindex: e.detail.value,
         eventtype: '事假',
       })
-    } 
+    }
 
     if (e.detail.value == 2) {
       this.setData({
@@ -252,7 +244,7 @@ Page({
     }
   },
 
-  reasonfunc:function(e){
+  reasonfunc: function (e) {
     this.setData({
       reason: e.detail.value
     })
@@ -275,87 +267,92 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow:function() {
+  onShow: function () {
+    var app = getApp();
     var that = this
-
-    //获取存储的标题
-    wx.getStorage({
-      key: 'staff_topic',
-      success: function (res) {
-        that.setData({ topic: res.data })
+    wx.request({
+      url: 'http://www.ydyw.com:8008/staff/trans/',
+      data: {
+        username: app.globalData.global_username,
+        staff_ticket_id: app.globalData.ticket_id,
       },
-    })
-
-    //获取存储的开始时间
-    wx.getStorage({
-      key: 'staff_begintime',
-      success: function (res) {
-        that.setData({ begintime: res.data })
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
       },
-    })
-
-    //获取存储的结束时间
-    wx.getStorage({
-      key: 'staff_endtime',
       success: function (res) {
-        that.setData({ endtime: res.data })
+        console.log("获取transition_id成功了！")
+        console.log(res.data)
+        that.setData({
+          accept_id: res.data.accept,
+          refuse_id: res.data.refuse,
+        })
       },
+      fail: function () {
+        console.log("失败了！")
+      },
+      complete: function () {
+        console.log("完成了！")
+      }
     })
-
-    //获取存储的请假天数
-    wx.getStorage({
-      key: 'staff_daynum',
+    wx.request({
+      url: 'http://www.ydyw.com:8008/staff/obtainticketdata/',
+      data: {
+        username: app.globalData.global_username,
+        staff_ticket_id: 3,
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       success: function (res) {
-        that.setData({ daynum: res.data })
+        console.log("成功了！")
+        console.log(res.data)
+        that.setData({
+          listid: res.data[0],
+          topic: res.data[1],
+          begintime: res.data[2],
+          endtime: res.data[3],
+          daynum: res.data[4],
+          receiver: res.data[5],
+          typeindex: res.data[6],
+          reason: res.data[7],
+          creator: res.data[8],
+          createtime: res.data[9],
+        })
       },
-    })
-
-    //获取存储的受理人
-    wx.getStorage({
-      key: 'staff_receiver',
-      success: function (res) {
-        that.setData({ receiver: res.data })
+      fail: function () {
+        console.log("失败了！")
       },
-    })
-    
-    //获取存储的事件类型
-    wx.getStorage({
-      key: 'staff_eventtype',
-      success: function (res) {
-        that.setData({ eventtype: res.data })
-      },
-    })
-    wx.getStorage({
-      key: 'staff_reason',
-      success: function (res) {
-        that.setData({ reason: res.data })
-      },
-    })
-
-    //获取当前时间戳
-    var timestamp = Date.parse(new Date());
-    timestamp = timestamp / 1000;
-    console.log("当前时间戳为：" + timestamp);
-    //获取当前时间
-    var n = timestamp * 1000;
-    var date = new Date(n);
-    //年
-    var Y = date.getFullYear();
-    //月
-    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-    //日
-    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-    //时
-    var h = date.getHours();
-    //分
-    var m = date.getMinutes();
-    //秒
-    var s = date.getSeconds();
-    console.log("当前时间：" + Y + M + D + h + ":" + m + ":" + s);
-    ////////////////////////////////////////////////////////////////////
-    this.setData({
-      date_time: "1-" + Y + M + D + h + m	//
-    })
+      complete: function () {
+        console.log("完成了！")
+      }
+    }),
+      wx.request({
+        url: 'http://www.ydyw.com:8008/staff/trans/',
+        data: {
+          username: app.globalData.global_username,
+          staff_ticket_id: app.globalData.ticket_id,
+        },
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+          console.log("成功了888888！")
+          console.log(res.data)
+          that.setData({
+            accept_id: res.data.accept,
+            refuse_id: res.data.refuse,
+          })
+        },
+        fail: function () {
+          console.log("失败了！")
+        },
+        complete: function () {
+          console.log("完成了！")
+        }
+      })
   },
 
   /**

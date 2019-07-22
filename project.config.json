@@ -14,8 +14,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wxdcac552ab0f22e4d",
-	"projectname": "0605piao",
+	"appid": "wxe5cfe5bdcb5a755a",
+	"projectname": "wxxcx_pjs_0716",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -39,6 +39,5 @@
 			"current": -1,
 			"list": []
 		}
-    
 	}
 }

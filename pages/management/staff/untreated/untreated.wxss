@@ -9,8 +9,12 @@
 .item{
   flex-direction: row;
   padding: 30rpx 20rpx;
-  height: 40rpx;
-  line-height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.reason{
+  margin-top: 15rpx;
+  margin-right: 20rpx;
 }
 
 .timeitem{
@@ -63,6 +67,7 @@
 
 .buttonitem{
   display: flex;
+  margin-bottom: 50rpx;
 }
 
 .buttonitem button{

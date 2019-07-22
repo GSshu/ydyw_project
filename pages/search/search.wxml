@@ -1,25 +1,3 @@
-<!--index.wxml-->
-
-<view class="page">
-  <view class="nav-header"> 
-    <view class="search-wrap"> 
-        <view>
-            <input class="search-input" placeholder="请输入搜索关键字" auto-focus
-            bindinput="bindInput"  bindchange="bindchange" value="{{inputValue}}"/>
-        </view>
-        <button class="cancel" style="display:inline-block" bindtap="clearInput">x</button>
-        <button  class="search" style="display:inline-block" bindtap="setSearchStorage">搜索</button>
-    </view>
-  </view>
-  <view class="zong">
-    <view class="local" wx:for="{{getSearch}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx" >
-      <view wx:if="{{itemName != ''}}"> {{itemName}} </view>
-    </view>
-    <modal class="modal" hidden="{{modalHidden}}" bindconfirm="modalChangeConfirm" bindcancel="modalChangeCancel">
-      <view>确定清除历史记录吗？</view> 
-    </modal>
-    <button style="display:inline-block" bindtap="clearSearchStorage">清除历史记录</button>
-  </view>
-</view>
-
-
+<!--pages/search/search.wxml-->
+<import src="/component/wxSearch/wxSearch"></import>
+<template is="wxSearch" data="{{...tabData}}"></template>

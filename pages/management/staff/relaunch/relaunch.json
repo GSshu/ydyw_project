@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "员工管理-重新编辑",
+  "usingComponents": {
+    "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM",
+    "right-picker": "/component/right-picker/right-picker"
+  }
+}
