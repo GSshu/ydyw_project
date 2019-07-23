@@ -110,25 +110,25 @@
       <view class="manger">
      
         <view class="item_right" bindtap="staff_launch">
-            <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+            <view class='reddot'><text class="item_right">{{change_owner_number}}</text></view>
             <image src="{{launch.url}}" class="icon"/>
             <view class="mark" ><text class="text">{{launch.text}}</text></view>
         </view>
 
         <view class="item_right" bindtap="staff_untreated">
-         <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+         <view class='reddot'><text class="item_right">{{change_duty_number}}</text></view>
             <image src="{{untreated.url}}" class="icon"/>
             <view class="mark" ><text class="text">{{untreated.text}}</text></view>
         </view>
 
         <view class="item_right" bindtap="staff_treated">
-         <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+         <view class='reddot'><text class="item_right">{{0}}</text></view>
             <image src="{{treated.url}}" class="icon"/>
             <view class="mark" ><text class="text">{{treated.text}}</text></view>
         </view>
 
-        <view class="item_right" bindtap="staff_related">
-            <view class='reddot'><text class="item_right">{{change_untreated_number}}</text></view>
+        <view class="item_right" bindtap="staff_beforerelated">
+            <view class='reddot'><text class="item_right">{{change_relation_number}}</text></view>
             <image src="{{submission.url}}" class="icon"/>
             <view class="mark" ><text class="text">{{submission.text}}</text></view>
               

@@ -3,7 +3,8 @@
 <view class="avatar">
   <image src="/static/image/avatar.png" bindtap="loginHandle"></image>
   <view class='info'>
-  <text>姓名：张三</text>
+  <text>姓名：{{global_username}}</text>
+ 
   <text>部门：技术运行部</text>
   </view>
 </view>
@@ -11,12 +12,12 @@
 <view class="cells">
   <view class="divider"></view>
   <view>
-    <navigator class="item">我发起的</navigator>
-    <navigator class="item">我审批的</navigator>
-    <navigator class="item">抄送我的</navigator>
+    <navigator url="../login/login" class="item">我发起的</navigator>
+    <navigator url="../login/login" class="item">我审批的</navigator>
+    <navigator url="../login/login" class="item">抄送我的</navigator>
   </view>
   <view class="divider"></view>
-  <navigator class="item" style="color:#BE2323">退出登录</navigator>
+  <view class="item" bindtap="logout_action">退出登录</view>
   <view class="divider"></view>
 </view>
 

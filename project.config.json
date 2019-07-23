@@ -13,8 +13,8 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
-	"appid": "wxe5cfe5bdcb5a755a",
+	"libVersion": "2.7.7",
+	"appid": "wxdcac552ab0f22e4d",
 	"projectname": "wxxcx_pjs_0716",
 	"debugOptions": {
 		"hidedInDevtools": []

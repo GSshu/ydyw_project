@@ -14,7 +14,8 @@ Page({
 
     detaildata:[],
 
-    workflow_id:1,
+    workflow_id:1, //工作流id是1
+    category:'relation', //类别是 相关
 
     numberofdata:100,
     index:0,
@@ -28,22 +29,8 @@ Page({
     console.log(idx)
   },
 
-  
-  gotoPage:function(e){
-    var app = getApp(); 
-    app.globalData.ticket_id = this.data.detaildata[e.currentTarget.dataset.index]['ticket_id']
-    app.globalData.state_id = this.data.detaildata[e.currentTarget.dataset.index]['state_id']
-    if (app.globalData.state_id == 3){
-      wx.navigateTo({
-        url: '../untreated/untreated',
-      }) 
-    }
-    else if (app.globalData.state_id == 2){
-      wx.navigateTo({
-        url: '../relaunch/relaunch',
-      })
-    }
- },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -55,6 +42,7 @@ Page({
       data: {
         username: app.globalData.global_username,
         workflow_id: that.data.workflow_id,
+        category: that.data.category,
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {

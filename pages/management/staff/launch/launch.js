@@ -47,7 +47,7 @@ Page({
     //后台提交方法
     if (this.data.topic && this.data.begintime && this.data.endtime && this.data.daynum && this.data.receiver && this.data.eventtype) {
       wx.request({
-        url: 'http://www.ydyw.com:8008/staff/postdata/',
+        url: 'http://www.ydyw.com/staff/postdata/',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },

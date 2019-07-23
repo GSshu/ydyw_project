@@ -15,7 +15,7 @@ Page({
     detaildata:[],
 
     workflow_id:1,
-
+    category: 'duty', //类别是 代办
     numberofdata:100,
     index:0,
     state_id: 0,
@@ -51,10 +51,11 @@ Page({
     var app = getApp();     // 取得全局App
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com:8008/staff/obtaintickets/',
+      url: 'http://www.ydyw.com/staff/obtaintickets/',
       data: {
         username: app.globalData.global_username,
         workflow_id: that.data.workflow_id,
+        category: that.data.category,
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {

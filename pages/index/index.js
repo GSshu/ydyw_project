@@ -6,6 +6,9 @@ Page({
    */
   data: {
     change_untreated_number: '0',
+    change_owner_number: '0',
+    change_duty_number: '0',
+    change_relation_number: '0',
 
     launch:{
       url: "/static/image/launch.png",
@@ -116,6 +119,14 @@ Page({
       url: '../management/staff/related/related',
     })
   },
+  
+  staff_beforerelated: function () {
+    wx.navigateTo({
+      url: '../management/staff/beforerelated/beforerelated',
+    })
+  },
+
+
 
   change_beforeuntreated: function () {
     wx.navigateTo({
@@ -201,7 +212,9 @@ Page({
         success: res => {       //回调函数
           if (res.statusCode == 200) {   //信息 登录成功
             this.setData({
-              change_untreated_number: res.data	//服务器返回的结果
+              change_duty_number: res.data[1]['duty'],	//服务器返回的结果
+              change_relation_number: res.data[1]['relation'],	//服务器返回的结果
+              change_owner_number: res.data[1]['owner']	//服务器返回的结果
             })
           }
         }

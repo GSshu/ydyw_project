@@ -18,7 +18,7 @@ Page({
     creatortext:'创建人',
     conditiontext:'状态名',
 
-    //ticket_id: '4',
+    ticket_id: '',
 
     accept_id: 0,
     refuse_id: 0,
@@ -48,7 +48,7 @@ Page({
     var app = getApp();
     if (this.data.opinion) {
       wx.request({
-        url: 'http://www.ydyw.com:8008/staff/ticketagree/',
+        url: 'http://www.ydyw.com/staff/ticketagree/',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -84,7 +84,7 @@ Page({
     var app = getApp();
     if (this.data.opinion) {
       wx.request({
-        url: 'http://www.ydyw.com:8008/staff/ticketagree/',
+        url: 'http://www.ydyw.com/staff/ticketagree/',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -136,7 +136,7 @@ Page({
     var app = getApp();
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com:8008/staff/obtainticketdata/',
+      url: 'http://www.ydyw.com/staff/obtainticketdata/',
       data: {
         username: app.globalData.global_username,
         staff_ticket_id: app.globalData.ticket_id,
@@ -146,7 +146,6 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log("成功了！")
         console.log(res.data) 
         that.setData({
         listid:res.data[0],
@@ -169,7 +168,7 @@ Page({
       }
     }),
     wx.request({
-      url: 'http://www.ydyw.com:8008/staff/trans/',
+      url: 'http://www.ydyw.com/staff/trans/',
       data: {
         username: app.globalData.global_username,
         staff_ticket_id: app.globalData.ticket_id,

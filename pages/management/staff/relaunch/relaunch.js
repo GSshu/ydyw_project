@@ -48,7 +48,7 @@ Page({
     //后台提交方法
     if (this.data.topic && this.data.begintime && this.data.endtime && this.data.daynum && this.data.receiver && this.data.eventtype) {
       wx.request({
-        url: 'http://www.ydyw.com:8008/staff/postdata/',
+        url: 'http://www.ydyw.com/staff/postdata/',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -271,7 +271,7 @@ Page({
     var app = getApp();
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com:8008/staff/trans/',
+      url: 'http://www.ydyw.com/staff/trans/',
       data: {
         username: app.globalData.global_username,
         staff_ticket_id: app.globalData.ticket_id,
@@ -296,10 +296,10 @@ Page({
       }
     })
     wx.request({
-      url: 'http://www.ydyw.com:8008/staff/obtainticketdata/',
+      url: 'http://www.ydyw.com/staff/obtainticketdata/',
       data: {
         username: app.globalData.global_username,
-        staff_ticket_id: 3,
+        staff_ticket_id: app.globalData.ticket_id,
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
@@ -329,7 +329,7 @@ Page({
       }
     }),
       wx.request({
-        url: 'http://www.ydyw.com:8008/staff/trans/',
+        url: 'http://www.ydyw.com/staff/trans/',
         data: {
           username: app.globalData.global_username,
           staff_ticket_id: app.globalData.ticket_id,
@@ -339,7 +339,7 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded"
         },
         success: function (res) {
-          console.log("成功了888888！")
+          console.log("成功了！")
           console.log(res.data)
           that.setData({
             accept_id: res.data.accept,
