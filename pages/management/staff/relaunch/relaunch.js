@@ -16,6 +16,7 @@ Page({
     sourcefile: '选择文件',
     conditiontext: '状态名',
 
+    condition:"",
     topicplacerhoder: '请输入你的主题',
     begintimeplaceholder: '开始时间',
     endtimeplaceholder: '结束时间',
@@ -84,69 +85,8 @@ Page({
     }
   },
 
-  // summit_action: function (e) {
-  //   //后台提交方法
-  //   console.log('form发生了submit事件')
-  //     wx.request({
-  //       url: 'http://www.ydyw.com:8008/postdata/',
-  //       header: {
-  //         "Content-Type": "application/x-www-form-urlencoded"
-  //       },
-  //       method: "get",
-  //       data: {
-
-  //       },
-  //       success: function (res) {
-  //         console.log(res.data)
-  //       }
-  //     })
-  // },
-
   save_data: function (e) {
-    console.log('form发生了保存事件')
-    console.log(e.detail);
-    var objData = e.detail;
-    //标题
-    wx.setStorage({
-      key: 'staff_topic',
-      data: this.data.topic,
-    })
-
-    //开始时间
-    wx.setStorage({
-      key: 'staff_begintime',
-      data: this.data.begintime,
-    })
-
-    //结束时间admin
-    wx.setStorage({
-      key: 'staff_endtime',
-      data: this.data.endtime,
-    })
-
-    //请假天数
-    wx.setStorage({
-      key: 'staff_daynum',
-      data: this.data.daynum,
-    })
-
-    //受理人
-    wx.setStorage({
-      key: 'staff_receiver',
-      data: this.data.receiver,
-    })
-
-    //事件类型
-    wx.setStorage({
-      key: 'staff_eventtype',
-      data: this.data.eventtype,
-    })
-
-    //具体原因
-    wx.setStorage({
-      key: 'staff_reason',
-      data: this.data.reason,
-    })
+    
   },
 
   //输入标题
@@ -314,11 +254,12 @@ Page({
           begintime: res.data[2],
           endtime: res.data[3],
           daynum: res.data[4],
-          receiver: res.data[5],
-          typeindex: res.data[6],
-          reason: res.data[7],
-          creator: res.data[8],
-          createtime: res.data[9],
+          typeindex: res.data[5],
+          receiver: res.data[6],
+          condition: res.data[7],
+          reason: res.data[8].match(/[\u4e00-\u9fa5]/g).join(""),
+          // creator: res.data[8],
+          // createtime: res.data[9],
         })
       },
       fail: function () {

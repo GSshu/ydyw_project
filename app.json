@@ -2,30 +2,33 @@
   "pages": [
     "pages/login/login",
     "pages/index/index",
-    
-    "pages/search/search",
-    "pages/result/result",
     "pages/user/user",
     "pages/upcome/upcome",
-
+    "pages/search/search",
+    "pages/management/event/launch/launch",
     "pages/management/change/launch/launch",
     "pages/management/change/beforeuntreated/beforeuntreated",
     "pages/management/change/treated/treated",
     "pages/management/change/beforerelated/beforerelated",
     "pages/management/change/untreated/untreated",
-
     "pages/management/staff/launch/launch",
+    "pages/management/staff/end/end",
     "pages/management/staff/beforeuntreated/beforeuntreated",
-    "pages/management/staff/untreated/untreated",  
-    "pages/management/staff/relaunch/relaunch",  
+    "pages/management/staff/untreated/untreated",
+    "pages/management/staff/relaunch/relaunch",
     "pages/management/staff/beforerelated/beforerelated",
     "pages/management/staff/related/related",
-    "pages/management/staff/treated/treated",  
-    "pages/management/staff/receive/receive",  
-
-    "pages/management/event/launch/launch", 
-    "pages/management/problem/launch/launch"
-
+    "pages/management/staff/treated/treated",
+    "pages/management/staff/receive/receive",
+    "pages/management/problem/launch/launch",
+    "pages/management/problem/relaunch/relaunch",
+    "pages/management/problem/confirm/confirm",
+    "pages/management/problem/untreated/untreated",
+    "pages/management/problem/treated/treated",
+    "pages/management/problem/related/related",
+    "pages/management/problem/beforerelated/beforerelated",
+    "pages/management/problem/beforeuntreated/beforeuntreated"
+    
   ],
   "window": {
     "backgroundTextStyle": "dark",

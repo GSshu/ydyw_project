@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "场务问题-重编辑",
+  "usingComponents": {
+    "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM"
+  }
+}

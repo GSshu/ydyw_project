@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "员工管理-重新编辑",
+  "navigationBarTitleText": "外出事务管理-重新编辑",
   "usingComponents": {
     "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM",
     "right-picker": "/component/right-picker/right-picker"

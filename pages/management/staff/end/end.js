@@ -1,0 +1,162 @@
+// pages/management/staff/untreated/untreated.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    listidtext: '工单',
+    topictext: '标题',
+    begintimetext: '开始时间',
+    endtimetext: '结束时间',
+    daynumtext: '0.5天的倍数',
+    receivertext: '代理人',
+    eventtypetext: '申请类型',
+    reasontext: '申请原因',
+    opiniontext: '处理意见',
+    createtimetext: '创建时间',
+    creatortext: '创建人',
+    conditiontext: '状态名',
+    appendixtext: "相关附件",
+    showappendixtext: "查看附件",
+
+    ticket_id: '',
+
+    fileurl: '',  //需要预览的图片在服务器中的地址
+
+    accept_id: 0,
+    refuse_id: 0,
+
+    listid: '',
+    date_time: '',
+    topic: '',
+    begintime: '',
+    endtime: '',
+    daynum: '',
+    receiver: '',
+    eventtype: '',
+    reason: '',
+    createtime: '',
+    creator: '',
+    opinion: '',
+
+    showimgurl: "../../../../static/image/launch.png",
+  },
+
+  previewImg: function (e) {
+    var that = this
+    this.data.fileurl = this.data.reason.replace(/[\u4e00-\u9fa5]/g, "")
+    console.log(e)
+    wx.request({
+      url: 'http://www.ydyw.com:8008/staff/launch/downloadfile/',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      data: {
+        fileurl: this.data.fileurl
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          showimgurl: "http://www.ydyw.com:8008/staff/launch/downloadfile/"
+        })
+      }
+    })
+  },
+
+  opiniofunc: function (e) {
+    this.setData({
+      opinion: e.detail.value
+    })
+  },
+  
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 加载页面获取
+   */
+  onShow: function () {
+    var app = getApp();
+    var that = this
+    wx.request({
+      url: 'http://www.ydyw.com/staff/obtainticketdata/',
+      data: {
+        username: app.globalData.global_username,
+        staff_ticket_id: app.globalData.ticket_id,
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          listid: res.data[0],
+          topic: res.data[1],
+          begintime: res.data[2],
+          endtime: res.data[3],
+          daynum: res.data[4],
+          receiver: res.data[5],
+          eventtype: res.data[6],
+          reason: res.data[7],
+          creator: res.data[8],
+          createtime: res.data[9],
+        })
+      },
+      fail: function () {
+        console.log("失败了！")
+      },
+      complete: function () {
+        console.log("完成了！")
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

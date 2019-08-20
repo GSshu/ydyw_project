@@ -17,8 +17,12 @@ Page({
     createtimetext:'创建时间',
     creatortext:'创建人',
     conditiontext:'状态名',
+    appendixtext: "相关附件",
+    showappendixtext:"查看附件",
 
     ticket_id: '',
+
+    fileurl:'',  //需要预览的图片在服务器中的地址
 
     accept_id: 0,
     refuse_id: 0,
@@ -35,6 +39,30 @@ Page({
     createtime: '',
     creator: '',
     opinion:'',
+
+    showimgurl:"../../../../static/image/launch.png",
+  },
+
+  previewImg:function(e){
+    var that = this
+    this.data.fileurl = this.data.reason.replace(/[\u4e00-\u9fa5]/g, "")
+    console.log(e)
+    wx.request({
+      url: 'http://www.ydyw.com:8008/staff/launch/downloadfile/',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      data: {
+        fileurl: this.data.fileurl
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          showimgurl: "http://www.ydyw.com:8008/staff/launch/downloadfile/"
+        })
+      }
+    })
   },
 
   opiniofunc:function(e){
@@ -89,7 +117,7 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded"
         },
         method: "POST",
-        data: {
+        data: { 
           username: app.globalData.global_username,
           staff_ticket_id: app.globalData.ticket_id,
           staff_transition_id: this.data.refuse_id,
@@ -146,15 +174,15 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log(res.data) 
+        console.log(res) 
         that.setData({
         listid:res.data[0],
         topic: res.data[1],
         begintime: res.data[2],
         endtime: res.data[3],
         daynum: res.data[4],
-        receiver: res.data[5],
-        eventtype: res.data[6],
+        eventtype: res.data[5],
+        receiver: res.data[6],
         reason: res.data[7],
         creator: res.data[8],
         createtime: res.data[9],
@@ -168,8 +196,8 @@ Page({
       }
     }),
     wx.request({
-      url: 'http://www.ydyw.com/staff/trans/',
-      data: {
+      url: 'http://www.ydyw.com:8008/staff/trans/',
+      data: {     
         username: app.globalData.global_username,
         staff_ticket_id: app.globalData.ticket_id,
       },
@@ -177,9 +205,9 @@ Page({
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      success: function (res) {
+      success: function (res) { 
         console.log("获取transition_id成功了！")
-        console.log(res.data)
+        console.log(res)
         that.setData({
           accept_id: res.data.accept,
           refuse_id: res.data.refuse,

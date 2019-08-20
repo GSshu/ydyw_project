@@ -1,0 +1,89 @@
+<!--pages/management/staff/untreated/untreated.wxml-->
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <!--工单 -->
+    <view class='item'>
+      {{listidtext}}
+     <view class='text'>{{listid}}</view>  
+    </view>
+    <view class="divider"></view>
+
+   <!--标题 -->
+    <view class='item'>
+      {{topictext}}
+     <view class='text'>{{topic}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--开始时间-->
+    <view class='item'>
+      {{begintimetext}}
+     <view class='text'>{{begintime}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--结束时间-->
+    <view class='item'>
+      {{endtimetext}}
+     <view class='text'>{{endtime}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--0.5的倍数-->
+    <view class='item'>
+      {{daynumtext}}
+     <view class='text'>{{daynum}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--代理人-->
+    <view class='item'>
+      {{receivertext}}
+     <view class='text'>{{receiver}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--申请类型-->
+    <view class='item'>
+      {{eventtypetext}}
+     <view class='text'>{{eventtype}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--申请原因-->
+    <view class='item'>
+      {{reasontext}}
+     <view class='reason'>{{reason}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--查看附件-->
+    <view class='item'>
+      {{appendixtext}}
+      <button bindtap="previewImg" name='上传文件'>{{showappendixtext}}</button>    
+    </view>
+    <view class="divider"></view>
+
+    <!-- 显示图片
+    <view class='item'>
+      {{appendixtext}}
+      <image id='showimg' src='{{showimgurl}}'></image>    
+    </view>
+    <view class="divider"></view> -->
+    
+    <!--创建人-->
+    <view class='item'>
+      {{creatortext}}
+     <view class='text'>{{creator}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--创建时间-->
+    <view class='item'>
+      {{createtimetext}}
+     <view class='text'>{{createtime}}</view>  
+    </view>
+
+  </form>
+</view>

@@ -3,6 +3,9 @@
    * 页面的初始数据
    */
   data: {
+    workflow_id: 2,
+    submit_id: 7,
+    save_id: 9,
     date_time: '',
     date: '2019-01-01 12:00',
     disabled: false,//设置是否能点击 false可以 true不能点击
@@ -184,69 +187,46 @@ multiple: true,
      })
    },
 
-  summit_action: function (e) {
+  yx_submit: function () {
     //后台提交方法
-    console.log('form发生了submit事件')
-    if (this.data.title && this.data.changeitems && this.data.urgentitems && this.data.contact_name && this.data.tel && this.data.hopetime && this.data.infoitems && this.data.content && this.data.slr_name && this.data.slr_id && this.data.receiver) {  
+    var app = getApp();
+    var that = this;
+
     wx.request({  
-      url: 'http://192.168.163.13:8009/launch/launch_change/',  
+      url: 'http://www.ydyw.com:8008/yxchange/postdata/',  
             header: {  
               "Content-Type": "application/x-www-form-urlencoded"  
             },
             method: "POST",
             data: {		
                   //向服务器发送的信息
-                  change_id: this.data.date_time,
+                  yx_username: app.globalData.global_username,
+                  yx_workflow_id: this.data.workflow_id,
+                  yx_transition_id: this.data.submit_id,
+                  
                   change_title: this.data.title,
                   change_type: this.data.changeitems,   //文字
                   urgent_rank: this.data.urgentitems,   //文字
                   contact_name: this.data.contact_name,
                   contact_telephone: this.data.tel,
                   expect_finish_time: this.data.hopetime,
-                  notice_relate_dep: this.data.infoitems,  //文字
                   change_text: this.data.content,
-                  receive_name: this.data.slr_name,
-                  receive_id: this.data.slr_id,
                   },
-            success: function(res) {
-              if(res.data.status == 200){
-                this.setData({
-                  result: res.data	//服务器返回的结果
-                })
-              }
-
-              if (res.data == "提交成功！") {
-                wx.showToast({
-                  title: '提交成功啦',
-                  icon: 'success',
-                  duration: 2000,
-                  success: function () {
-                    setTimeout(function () {
-                    wx.reLaunch({
-                      url: '../../../index/index'
-                    })
-                  }, 800)
+                 success: function (res) {
+                        wx.showToast({
+                                       title: '提交成功啦',
+                                       icon: 'success',
+                                       duration: 2000,
+                        success: function () {
+                        setTimeout(function () {
+                                  wx.reLaunch({
+                                  url: '../../../index/index'
+                                  })
+                                  }, 800)
+                                    }
+                       })
                   }
-                })
-              }
-              else {
-                wx.showToast({
-                  title: '提交失败！',
-                  icon: 'none',
-                  duration: 5000
-                })
-              }
-            }
     })
-      wx.clearStorage()
-  }
-    else {
-      wx.showToast({
-        title: '所填不能为空',
-        icon: 'false',
-        duration: 2000
-      })
-    }
   },
 
   //保存用户未提交数据

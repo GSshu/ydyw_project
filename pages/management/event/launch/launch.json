@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "事件管理-发起",
   "usingComponents": {
-    "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM",
-    "right-picker": "/component/right-picker/right-picker"
+    "popup": "/component/popup/popup",
+    "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM"
   }
 }

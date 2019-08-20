@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "外出事务管理-结束",
+  "usingComponents": {
+    "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM",
+    "right-picker": "/component/right-picker/right-picker"
+  }
+}

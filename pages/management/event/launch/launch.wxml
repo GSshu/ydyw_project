@@ -1,25 +1,30 @@
-<view class='page'>
+<!--pages/management/staff/launch/launch.wxml-->
+ <view class='page'>
   <form bindsubmit="formSubmit" bindreset="formReset">
 
+    <!--标题 -->
     <view class='item'>
       {{topictext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="topicfunc" class='text' value="{{reporttime}}" placeholder='{{topicplaceholder}}'></input>     
+      <input type='text' bindinput="topicfunc" class='text' value="{{topic}}" placeholder="{{topicplacerhoder}}"></input>     
     </view>
     <view class="divider"></view>
 
+    <!--报告时间-->
     <view class="timeitem">   
-      {{reporttimetext}}
+      {{reportimetext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <pickerYMDHM class='timechanger' placeholder = "{{reporttimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="reporttimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      <pickerYMDHM class='timechanger' placeholder = "{{reportimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="reportimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
       </pickerYMDHM>
     </view>
     <view class="divider"></view>
 
+    <!--系统类型-->
     <view class="item">
       {{systemtypetext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <picker bindchange="systemtypefunc" value="{{systemtypeindex}}" range="{{systemtypearray}}" > 
+      <picker bindchange="typefunc" value="{{systemtypeindex}}" range="{{systemtypearray}}" >  
+      <!-- 下拉框选择人 -->
       <view class='chooseshouli'>
         <view class="type-label">{{systemtypearray[systemtypeindex]}}</view>
         <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
@@ -28,10 +33,12 @@
     </view>
     <view class="divider"></view>
 
-     <view class="item">
-      {{contacttext}}
+    <!--联系人-->
+    <view class="item">
+      {{contactext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <picker bindchange="contactfunc" value="{{contactindex}}" range="{{contactarray}}" >  
+      <picker bindchange="contactfunc" value="{{contactindex}}" range="{{contactarray}}" >   
+      <!-- 下拉框选择人 -->
       <view class='chooseshouli'>
         <view class="type-label">{{contactarray[contactindex]}}</view>
         <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
@@ -40,33 +47,51 @@
     </view>
     <view class="divider"></view>
 
+    <!--联系电话 -->
     <view class='item'>
-      {{teltext}}
+      {{contacteltext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="telfunc" class='text' value="{{title}}" placeholder='{{telplaceholder}}'></input>     
+      <input type='text' bindinput="telfunc" class='text' value="{{contactel}}" placeholder="{{contactelplaceholder}}"></input>     
     </view>
     <view class="divider"></view>
 
+    <!--发生时间-->
     <view class="timeitem">   
-      {{occurretimetext}}
+      {{happentimetext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <pickerYMDHM class='timechanger' placeholder = "{{occurretimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="occurretimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      <pickerYMDHM class='timechanger' placeholder = "{{happentimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="happentimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
       </pickerYMDHM>
     </view>
-    <view class="divider"></view> 
+    <view class="divider"></view>
 
-    <view class='item'>
+    <!--受理人-->
+    <view class="item">
       {{receivertext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="receiverfunc" class='text' value="{{title}}" placeholder='{{receiverplaceholder}}'></input>     
+      <picker bindchange="receiverfunc" value="{{receiverindex}}" range="{{contactarray}}" >   
+      <!-- 下拉框选择人 -->
+      <view class='chooseshouli'>
+        <view class="type-label">{{receiverarray[receiverindex]}}</view>
+        <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
+      </view>
+      </picker>
     </view>
     <view class="divider"></view>
 
+    <!--受理时间-->
     <view class="timeitem">   
-      {{receivetimetext}}
+      {{receivertimetext}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <pickerYMDHM class='timechanger' placeholder = "{{receivetimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="receivetimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
+      <pickerYMDHM class='timechanger' placeholder = "{{receivertimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="receivertimefunc" startDate="{{startDate}}" endDate="{{endDate}}">
       </pickerYMDHM>
+    </view>
+    <view class="divider"></view>
+
+    <!--影响范围 -->
+    <view class='item'>
+      {{rangetext}}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="rangefunc" class='text' value="{{range}}" placeholder="{{rangeplaceholder}}"></input>     
     </view>
     <view class="divider"></view>
 
@@ -76,15 +101,17 @@
     </view>
     <view class="divider"></view>
 
+    <!--具体原因-->
     <view class='info'>
-      {{descriptiontext}}
-      <textarea bindinput="descriptionfunc" placeholder='{{descriptionplaceholder}}' value='{{content}}' class='textarea'></textarea>
+      {{reasontext}}
+      <textarea bindinput="reasonfunc" placeholder='请输入你的详细内容' value='{{reason}}' class='textarea'></textarea>
     </view>
 
     <view class='buttonitem'>
-      <button type="primary" bindtap="summit_action"> 提交 </button>
-      <button type="warn" bindtap="save_data"> 保存 </button>
-    </view>
+    <button type="primary" bindtap="summit_action"> 提交 </button>
+    <button type="warn" bindtap="save_data"> 保存 </button>
+    <!-- <button type="warn"  form-type="reset" bindtap="warn"> 重置 </button> -->
+  </view>
 
   </form>
 </view>

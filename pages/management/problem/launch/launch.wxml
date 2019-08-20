@@ -4,16 +4,22 @@
       <view class='item'>
       {{changetopic}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="inputtitle" class='text' value="{{title}}" placeholder='请输入工单标题'></input>     
+      <input type='text' bindinput="inputtopic" class='text' value="{{topic}}" placeholder='请输入工单标题'></input>     
     </view>
     <view class="divider"></view>
 
+    <view class='item'>
+      {{serialname }}
+      <image class='requiredimage' src="{{requireurl}}"></image>
+      <input type='text' bindinput="inputserialname" class='text' value="{{serial_name}}" placeholder='请输入编号'></input>     
+    </view>
+    <view class="divider"></view>
 
 
      <view class='item'>
       {{piaojuleixing}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <radio-group name= "piaojuleixing" class="radiogroup" bindchange="launchchangeitems">
+      <radio-group name= "piaojuleixing" class="radiogroup" bindchange="piaojuleixingitems">
         <label class="radio" wx:for="{{changeitemss}}">
           <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
         </label>
@@ -24,14 +30,14 @@
        <view class='item'>
       {{jigouname}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='来电机构名称'></input>
+      <input type='text' bindinput="inputjigou_name" value='{{jigou_name}}' class='text' placeholder='来电机构名称'></input>
     </view> 
    <view class="divider"></view>
    
        <view class='item'>
       {{jigouhanghao}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='来电机构大额支付行号'></input>
+      <input type='text' bindinput="inputjigou_hanghao" value='{{jigou_hanghao}}' class='text' placeholder='来电机构大额支付行号'></input>
     </view> 
    <view class="divider"></view>
    
@@ -52,7 +58,7 @@
 
  <view class="item">
   请选择相关业务部门
-  <picker bindchange="yewubumen" value="{{index}}" range="{{array}}" >   <!-- 下拉框选择人 -->
+  <picker bindchange="inputyewubumen" value="{{index}}" range="{{array}}" >   <!-- 下拉框选择人 -->
   <view class='chooseshouli'>
     <view class="type-label">{{array[index]}}</view>
     <image class='type-icon' mode="aspectFit" src="{{xialajiantou}}"></image>
@@ -65,21 +71,21 @@
  <view class='item'>
       {{yewushijianleibie}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='业务事件类别'></input>
+      <input type='text' bindinput="inputyewuleibie" value='{{yewuleibie}}' class='text' placeholder='业务事件类别'></input>
     </view> 
    <view class="divider"></view>
    
      <view class='item'>
       {{changwuslr}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='请输入场务受理人'></input>
+      <input type='text' bindinput="inputchangwuslr" value='{{changwu_slr}}' class='text' placeholder='请输入场务受理人'></input>
     </view> 
    <view class="divider"></view>
    
 
 
       <view class="timeitem">   <!--时间选择框 -->
-    {{hopetimetext}}
+    {{sltimetext}}
     <pickerYMDHM class='timechanger' placeholder = "{{hopetimeplaceholder}}" date = "{{date}}" disabled = "{{disabled}}" bind:onPickerChange="onPickerChange" startDate="{{startDate}}" endDate="{{endDate}}">
     </pickerYMDHM>
 </view>
@@ -88,14 +94,14 @@
         <view class='item'>
       {{changwulxr}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='请输入场务联系人'></input>
+      <input type='text' bindinput="inputchangwulxr" value='{{changwu_lxr}}' class='text' placeholder='请输入场务联系人'></input>
     </view> 
    <view class="divider"></view>
 
        <view class='item'>
       {{changwulxrtel}}
       <image class='requiredimage' src="{{requireurl}}"></image>
-      <input type='text' bindinput="inputcontact_name" value='{{contact_name}}' class='text' placeholder='请输入场务联系人电话'></input>
+      <input type='text' bindinput="inputchangwulxr_tel" value='{{changwulxr_tel}}' class='text' placeholder='请输入场务联系人电话'></input>
     </view> 
    <view class="divider"></view>
     <!-- <view class='item'>

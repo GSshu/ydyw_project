@@ -1,0 +1,105 @@
+/* pages/problem/launch/launch.wxss */
+.page{
+  display: flex;
+  flex-direction: column;
+  padding: 5rpx 10rpx;
+  font-size: 28rpx;
+}
+
+.item{
+  flex-direction: row;
+  padding: 30rpx 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.timeitem{
+  flex-direction: row;
+  padding: 30rpx 20rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.timechanger{
+  float: right;
+}
+
+.radiogroup{
+  float: right;
+}
+
+.text{
+  float: right;
+}
+
+.requiredimage{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+}
+
+.divider {
+  width: 100%;
+  height: 3rpx;
+  background-color: #f0f0f0;
+}
+
+.info{
+  padding: 30rpx 20rpx;
+}
+
+.textarea{
+  width:100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 20rpx auto;
+  padding: 20rpx 20rpx;
+  border-radius: 20rpx;
+  border: solid 1rpx #c2bfbf;
+  min-height: 150rpx;
+}
+
+.buttonitem{
+  display: flex;
+  margin-bottom: 50rpx;
+}
+
+.buttonitem button{
+  text-align: center;
+  vertical-align: middle;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 200rpx;
+}
+
+.chooseshouli{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.type-label{
+  color: #000;
+  font-size: 28rpx;
+}
+
+ .type-icon{
+  height: 50rpx;
+  width: 50rpx;
+  right:15rpx;
+  padding-left: 10rpx;
+}
+
+.item picker{
+  float: right;
+}
+.item button{
+  float: right;
+  font-size: 28rpx;
+  height:40rpx;
+  width: 200rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  text-align: center;
+}/* pages/management/problem/relaunch/relaunch.wxss */

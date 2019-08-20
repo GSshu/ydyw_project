@@ -30,6 +30,12 @@ Page({
     receiver: '',
     eventtype: '',
     reason: '',
+    urlandreason:'',
+
+    dataisok:false,
+    fileisok:true,
+
+    tempFilePaths:"",//上传图片的地址
 
     workflow_id: 1,
     submit_id: 1,
@@ -41,19 +47,71 @@ Page({
 
     requireurl: "../../../../static/image/required.png",
     xialajiantou: "../../../../static/image/xialajiantou.png",
+    rootpath: "/app/0708_workflow/media",
+    finalpath: "",
+  },
+
+  chooseFile: function () {
+    var app = getApp();
+    var that = this;
+    
+    wx.chooseImage({
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          tempFilePaths: res.tempFilePaths,
+          sourcefile:"文件已获取"
+        })
+      }
+    })
   },
 
   summit_action:function(e){
+    var app = getApp();
+    var that = this;
     //后台提交方法
     if (this.data.topic && this.data.begintime && this.data.endtime && this.data.daynum && this.data.receiver && this.data.eventtype) {
+      var date = new Date();
+      var year = date.getFullYear(); 
+      var month = date.getMonth() + 1; 
+      var day = date.getDate(); 
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      if (day >= 0 && day <= 9) {
+        day = "0" + day;
+      }
+
+      var rootpath = "/app/0708_workflow/media"
+      var finalpath = rootpath + "/" + app.globalData.global_username + "/" + year + "/" + month + "/" + day + "/" + this.data.tempFilePaths[0].substring(11,);
+      var a = finalpath;
+
+      this.data.urlandreason = finalpath + this.data.reason;
+      wx.uploadFile({
+        url: 'http://www.ydyw.com:8008/staff/launch/uploadfile/', //仅为示例，非真实的接口地址
+        filePath: this.data.tempFilePaths[0],
+        name: 'file',
+        formData: {
+          'user': app.globalData.global_username
+        },
+        success: function (res) {
+          console.log(res.data)
+          if (!res.data == "10200") {
+            that.setData({
+              fileisok: false
+            })
+          }
+        },
+      })
       wx.request({
-        url: 'http://www.ydyw.com/staff/postdata/',
+        url: 'http://www.ydyw.com:8008/staff/postdata/',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
         method: "POST",
         data: {
           //向服务器发送的信息
+          staff_username: app.globalData.global_username,
           staff_workflow_id: this.data.workflow_id,
           staff_transition_id: this.data.submit_id,
           staff_title: this.data.topic,
@@ -62,11 +120,16 @@ Page({
           staff_leave_days: this.data.daynum,   
           staff_leave_proxy: this.data.receiver,
           staff_leave_type: this.data.typeindex,
-          staff_leave_reason: this.data.reason,
+          staff_leave_reason: this.data.urlandreason,
         },
         success: function (res) {
           console.log(res)
           if (res.statusCode == 200) {
+            that.setData({
+              dataisok:true
+            })
+          }
+          if (that.data.dataisok && that.data.fileisok) {
             wx.showToast({
               title: '提交成功啦',
               icon: 'success',
@@ -82,7 +145,6 @@ Page({
           }
         }
       })
-      wx.clearStorage()
   }
     else {
       wx.showToast({

@@ -34,3 +34,7 @@
   margin: 0 auto;
   background-color: #b9b7b7;
 }
+
+.item button{
+  font-size: 35rpx;
+}

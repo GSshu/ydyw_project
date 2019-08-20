@@ -1,0 +1,104 @@
+<!--pages/problem/launch/launch.wxml-->
+<view class='page'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <view class='item'>
+      {{changetopictext}}
+     <view class='text'>{{changetopic}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{serialnametext}}
+     <view class='text'>{{serialname}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{piaojuleixingtext}}
+     <view class='text'>{{piaojuleixing}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{jigounametext}}
+     <view class='text'>{{jigouname}}</view>  
+    </view>
+    <view class="divider"></view>
+    
+
+    <view class='item'>
+      {{jigouhanghaotext}}
+     <view class='text'>{{jigouhanghao}}</view>  
+    </view>
+    <view class="divider"></view>
+   
+
+    <view class='item'>
+      {{contact_name_1text}}
+     <view class='text'>{{contact_name_1}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{tel_1text}}
+     <view class='text'>{{tel_1}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{yewubumentext}}
+     <view class='text'>{{yewubumen}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{yewushijianleibietext}}
+     <view class='text'>{{yewushijianleibie}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{changwuslrtext}}
+     <view class='text'>{{changwuslr}}</view>  
+    </view>
+    <view class="divider"></view>
+   
+    <view class='item'>
+      {{sltimetext}}
+     <view class='text'>{{sltime}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{changwulxrtext}}
+     <view class='text'>{{changwulxr}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{changwulxrteltext}}
+     <view class='text'>{{changwulxrtel}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <view class='item'>
+      {{zixuncontent}}
+     <view class='text'>{{content}}</view>  
+    </view>
+    <view class="divider"></view>
+
+    <!--处理意见 -->
+    <view class='info'>
+      {{opiniontext}}
+      <textarea bindinput="opiniofunc" placeholder='请输入你的意见' value='{{opinion}}' class='textarea'></textarea>
+    </view>
+
+  
+    <view class='buttonitem'>
+    <button type="primary" bindtap="agree_action"> 同意 </button>
+    <button type="warn" bindtap="disagree_action"> 拒绝 </button>
+  </view>
+  </form>
+</view>
+

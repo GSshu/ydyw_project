@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  position: relative;
 }
 
 .manger{
@@ -62,12 +63,6 @@
   width: 88rpx; 
   height: 88rpx;
   position: relative;
-  border: solid 1rpx #000000;
-}
-
-.icon{
-  width: 88rpx; 
-  height: 88rpx;
 }
 
 .shownum{
@@ -117,7 +112,11 @@
     background-color: red;
     font-size: 26rpx;
     color: white;
-    overflow: hidden;
+}
+
+.icon{
+  width: 88rpx; 
+  height: 88rpx;
 }
 
 .center{
@@ -127,21 +126,28 @@ text-align: center;
 .search{
 position: relative;
 }
+
 .search input{
 border:1px solid #ccc;
 border-radius: 9px;
 margin: 20rpx; 
 height: 35px;
 }
+
 .icons{
 position: absolute;
 right: 20px;
 top:5px;
 }
+
 .lists{
 text-align: center;
 margin-top: 20px;
 color: rgb(230, 124, 25);
+}
+
+.mark{
+  position:relative;
 }
 
 

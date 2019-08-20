@@ -58,6 +58,20 @@
     </view>
     <view class="divider"></view>
 
+    <!--查看附件-->
+    <view class='item'>
+      {{appendixtext}}
+      <button bindtap="previewImg" name='上传文件'>{{showappendixtext}}</button>    
+    </view>
+    <view class="divider"></view>
+
+    <!-- 显示图片
+    <view class='item'>
+      {{appendixtext}}
+      <image id='showimg' src='{{showimgurl}}'></image>    
+    </view>
+    <view class="divider"></view> -->
+    
     <!--创建人-->
     <view class='item'>
       {{creatortext}}
@@ -79,7 +93,7 @@
     </view>
 
     <view class='buttonitem'>
-    <button type="primary" bindtap="agree_action"> 审批 </button>
+    <button type="primary" bindtap="agree_action"> 同意 </button>
     <button type="warn" bindtap="disagree_action"> 驳回 </button>
     </view>
   </form>

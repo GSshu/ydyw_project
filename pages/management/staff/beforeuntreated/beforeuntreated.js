@@ -43,6 +43,11 @@ Page({
         url: '../relaunch/relaunch',
       })
     }
+    else if (app.globalData.state_id == 4) {
+      wx.navigateTo({
+        url: '../untreated/untreated',
+      })
+    }
  },
   /**
    * 生命周期函数--监听页面加载
@@ -51,7 +56,7 @@ Page({
     var app = getApp();     // 取得全局App
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com/staff/obtaintickets/',
+      url: 'http://www.ydyw.com:8008/staff/obtaintickets/',
       data: {
         username: app.globalData.global_username,
         workflow_id: that.data.workflow_id,

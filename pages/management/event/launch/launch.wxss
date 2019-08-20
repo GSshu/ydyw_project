@@ -1,3 +1,4 @@
+/* pages/management/change/launch/launch.wxss */
 .page{
   display: flex;
   flex-direction: column;

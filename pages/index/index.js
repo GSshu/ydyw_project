@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    change_untreated_number: '0',
-    change_owner_number: '0',
-    change_duty_number: '0',
-    change_relation_number: '0',
+    change_untreated_number: '10',
+    change_owner_number: '10',
+    change_duty_number: '10',
+    change_relation_number: '10',
 
     launch:{
       url: "/static/image/launch.png",
@@ -46,7 +46,7 @@ Page({
       changemanagement:"变更管理",
       issuemanagement: "问题管理",
       eventmanagement: "事件管理",
-      staffmanagement: "员工管理"
+      staffmanagement: "外出事务管理"
     },
     search:"搜索"
   },
@@ -72,18 +72,67 @@ Page({
     })
   },
 
-  change_launch:function(){
+  ////////////变更管理//////////////
+  change_launch: function () {
     wx.navigateTo({
       url: '../management/change/launch/launch',
     })
   },
+  change_beforeuntreated: function () {
+    wx.navigateTo({
+      url: '../management/change/beforeuntreated/beforeuntreated',
+    })
+  },
+  change_untreated: function () {
+    wx.navigateTo({
+      url: '../management/change/untreated/untreated',
+    })
+  },
+  change_beforetreated: function () {
+    wx.navigateTo({
+      url: '../management/change/beforetreated/beforetreated',
+    })
+  },
+  change_treated: function () {
+    wx.navigateTo({
+      url: '../management/change/treated/treated',
+    })
+  },
+  change_beforerelation: function () {
+    wx.navigateTo({
+      url: '../management/change/beforerelated/beforerelated',
+    })
+  },
+  change_relation: function () {
+    wx.navigateTo({
+      url: '../management/change/receive/receive',
+    })
+  },
+  //////////问题管理//////////
+  problem_launch: function () {
+    wx.navigateTo({
+      url: '../management/problem/launch/launch',
+    })
+  },
+  problem_untreated: function () {
+    wx.navigateTo({
+      url: '../management/problem/beforeuntreated/beforeuntreated',
+    })
+  },
+  problem_treated: function () {
+    wx.navigateTo({
+      url: '../management/problem/untreated/untreated',
+    })
+  },
 
+  //////////事件管理///////////
   event_launch: function () {
     wx.navigateTo({
       url: '../management/event/launch/launch',
     })
   },
 
+  /////////外出事务管理///////////
   staff_launch: function () {
     wx.navigateTo({
       url: '../management/staff/launch/launch',
@@ -98,51 +147,19 @@ Page({
 
   staff_treated:function(){
     wx.navigateTo({
-      // url: '../management/staff/untreated/untreated',
+     url: '../management/staff/untreated/untreated',
     })
   },
 
-  change_untreated:function () {
-    wx.navigateTo({
-      url: '../management/change/untreated/untreated',
-    })
-  },
-
-  change_treated: function (){
-    wx.navigateTo({
-      url: '../management/change/treated/treated',
-    })
-  },
-
-  staff_related:function(){
+  staff_related: function () {
     wx.navigateTo({
       url: '../management/staff/related/related',
     })
   },
-  
+
   staff_beforerelated: function () {
     wx.navigateTo({
       url: '../management/staff/beforerelated/beforerelated',
-    })
-  },
-
-
-
-  change_beforeuntreated: function () {
-    wx.navigateTo({
-      url: '../management/change/beforeuntreated/beforeuntreated',
-    })
-  },
-
-  change_receive: function () {
-    wx.navigateTo({
-      url: '../management/change/receive/receive',
-    })
-  },
-
-  problem_launch: function () {
-    wx.navigateTo({
-      url: '../management/problem/launch/launch',
     })
   },
 
@@ -156,7 +173,7 @@ Page({
 
   search_launch_number: function (e) {		//与服务器进行交互
     wx.request({
-      url: 'http://192.168.163.13:8009/launch/launch_number/',	//获取服务器地址，此处为本地地址
+      url: 'http://www.ydyw.com:8008/launch/launch_number/',	//获取服务器地址
       header: {
         "content-type": "application/x-www-form-urlencoded"		//使用POST方法要带上这个header
       },
@@ -182,6 +199,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var app = getApp();
+    if (app.globalData.refreshFlag) {
+      app.globalData.refreshFlag = true;
+      console.log('请求数据')
+      wx.request({
+        url: 'http://www.ydyw.com:8008/obtaintickets/',	//获取服务器地址，此处为本地地址
+        header: {
+          "content-type": "application/x-www-form-urlencoded"		//使用POST方法要带上这个header
+        },
+        method: "POST",
+        data: {		//向服务器发送的信息
+          workflow_id: 2,
+          username: app.globalData.global_username,
+        },
+        success: res => {       //回调函数
+          if (res.statusCode == 200) {   //信息 登录成功
+            this.setData({
+              change_owner_number: res.data[1]['owner'],	//服务器返回的结果
+              change_duty_number: res.data[1]['duty'],	//服务器返回的结果
+              change_relation_number: res.data[1]['relation'],	//服务器返回的结果
+             
+            })
+          }
+        }
+      })
+      
+    }
 
   },
 
@@ -195,31 +239,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var app = getApp();
-    if (app.globalData.refreshFlag)
-    {
-      app.globalData.refreshFlag = true;
-      wx.request({
-        url: 'http://www.ydyw.com:8008/staff/obtaintickets/',	//获取服务器地址，此处为本地地址
-        header: {
-          "content-type": "application/x-www-form-urlencoded"		//使用POST方法要带上这个header
-        },
-        method: "POST",
-        data: {		//向服务器发送的信息
-          workflow_id: 1,
-          username: app.globalData.global_username,
-        },
-        success: res => {       //回调函数
-          if (res.statusCode == 200) {   //信息 登录成功
-            this.setData({
-              change_duty_number: res.data[1]['duty'],	//服务器返回的结果
-              change_relation_number: res.data[1]['relation'],	//服务器返回的结果
-              change_owner_number: res.data[1]['owner']	//服务器返回的结果
-            })
-          }
-        }
-      })
-    }
+    
   },
 
   /**

@@ -1,4 +1,4 @@
-// pages/result/result.js
+// pages/management/problem/treated/treated.js
 Page({
 
   /**

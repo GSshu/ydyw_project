@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "员工管理-发起",
+  "navigationBarTitleText": "外出事务管理-发起",
   "usingComponents": {
     "pickerYMDHM": "/component/pickerYMDHM/pickerYMDHM",
     "right-picker": "/component/right-picker/right-picker"

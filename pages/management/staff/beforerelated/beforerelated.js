@@ -29,6 +29,41 @@ Page({
     console.log(idx)
   },
 
+  gotoPage: function (e) {
+    var app = getApp();
+    app.globalData.ticket_id = this.data.detaildata[e.currentTarget.dataset.index]['ticket_id']
+    app.globalData.state_id = this.data.detaildata[e.currentTarget.dataset.index]['state_id']
+    //发起人-编辑中
+    if(app.globalData.state_id == 2) {
+      wx.navigateTo({
+        url: '../relaunch/relaunch',
+      })
+    }
+    //技术运行部负责-审批中
+    else if (app.globalData.state_id == 3) {
+      wx.navigateTo({
+        url: '../untreated/untreated',
+      })
+    }
+    //IT总监-处理中
+    else if (app.globalData.state_id == 4) {
+      wx.navigateTo({
+        url: '../untreated/untreated',
+      })
+    }
+    //结束
+    else if (app.globalData.state_id == 67) {
+      wx.navigateTo({
+        url: '../end/end',
+      })
+    }
+    //归档
+    else if (app.globalData.state_id == 5) {
+      wx.navigateTo({
+        url: '../end/end',
+      })
+    }
+  },
 
 
   /**
@@ -38,7 +73,7 @@ Page({
     var app = getApp();     // 取得全局App
     var that = this
     wx.request({
-      url: 'http://www.ydyw.com/staff/obtaintickets/',
+      url: 'http://www.ydyw.com:8008/staff/obtaintickets/',
       data: {
         username: app.globalData.global_username,
         workflow_id: that.data.workflow_id,
